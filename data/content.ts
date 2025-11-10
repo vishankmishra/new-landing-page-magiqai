@@ -30,6 +30,7 @@ export interface ContentData {
     badges: Array<{
       text: string;
       icon?: string;
+      rating?: number;
     }>;
   };
   socialProof: {
