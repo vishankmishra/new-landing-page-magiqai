@@ -164,6 +164,7 @@ export const siteContent: ContentData = {
     description: "Easily create AI-powered solutions with market-leading results in just 30 minutes. No coding required.",
   },
   hero: {
+    eyebrow: "AI-Powered Business Solutions",
     headline: "Transform Your Business with AI-Powered Solutions",
     subheadline: "Easily create intelligent, automated workflows and personalized experiences with market-leading results in just 30 minutes. No coding skills required.",
     primaryCTA: {
@@ -174,6 +175,7 @@ export const siteContent: ContentData = {
       text: "Watch Demo",
       href: "#demo",
     },
+    trustBar: "Trusted by thousands of businesses worldwide",
     badges: [
       { text: "4.9 rating", rating: 4.9 },
       { text: "1k+ community members" },
