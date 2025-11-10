@@ -1,20 +1,20 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { AnimatePresence, motion } from "framer-motion";
+import { useState } from "react";
 
 interface FAQItem {
-  question: string
-  answer: string
+  question: string;
+  answer: string;
 }
 
 interface FAQProps {
-  headline: string
-  items: FAQItem[]
+  headline: string;
+  items: FAQItem[];
 }
 
 export default function FAQMagiq({ headline, items }: FAQProps) {
-  const [openIndex, setOpenIndex] = useState<number | null>(0)
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
     <section className="py-16 sm:py-24 lg:py-32 bg-white">
@@ -50,7 +50,7 @@ export default function FAQMagiq({ headline, items }: FAQProps) {
                 </span>
                 <svg
                   className={`w-6 h-6 text-gray-500 flex-shrink-0 transition-transform duration-200 ${
-                    openIndex === index ? 'rotate-180' : ''
+                    openIndex === index ? "rotate-180" : ""
                   }`}
                   fill="none"
                   stroke="currentColor"
@@ -64,12 +64,12 @@ export default function FAQMagiq({ headline, items }: FAQProps) {
                   />
                 </svg>
               </button>
-              
+
               <AnimatePresence>
                 {openIndex === index && (
                   <motion.div
                     initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: 'auto', opacity: 1 }}
+                    animate={{ height: "auto", opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.3 }}
                   >
@@ -84,6 +84,5 @@ export default function FAQMagiq({ headline, items }: FAQProps) {
         </div>
       </div>
     </section>
-  )
+  );
 }
-

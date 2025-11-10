@@ -1,25 +1,30 @@
-'use client'
+"use client";
 
-import { motion } from 'framer-motion'
+import { motion } from "framer-motion";
 
 interface Step {
-  number: number
-  title: string
-  description: string
-  details?: Array<string>
+  number: number;
+  title: string;
+  description: string;
+  details?: Array<string>;
 }
 
 interface HowItWorksProps {
-  headline: string
-  subheadline: string
-  steps: Step[]
+  headline: string;
+  subheadline: string;
+  steps: Step[];
   timeSaving: {
-    before: string
-    after: string
-  }
+    before: string;
+    after: string;
+  };
 }
 
-export default function HowItWorks({ headline, subheadline, steps, timeSaving }: HowItWorksProps) {
+export default function HowItWorks({
+  headline,
+  subheadline,
+  steps,
+  timeSaving,
+}: HowItWorksProps) {
   return (
     <section className="py-16 sm:py-24 lg:py-32 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -72,11 +77,14 @@ export default function HowItWorks({ headline, subheadline, steps, timeSaving }:
                   <p className="text-gray-600 mb-4 leading-relaxed">
                     {step.description}
                   </p>
-                  
+
                   {step.details && step.details.length > 0 && (
                     <ul className="space-y-2">
                       {step.details.map((detail, detailIndex) => (
-                        <li key={detailIndex} className="flex items-start gap-2 text-sm text-gray-600">
+                        <li
+                          key={detailIndex}
+                          className="flex items-start gap-2 text-sm text-gray-600"
+                        >
                           <span className="text-gray-400">•</span>
                           <span>{detail}</span>
                         </li>
@@ -99,18 +107,21 @@ export default function HowItWorks({ headline, subheadline, steps, timeSaving }:
         >
           <div className="flex flex-col sm:flex-row items-center justify-center gap-8">
             <div>
-              <p className="text-sm font-medium text-gray-400 mb-1">Before MagiQ AI</p>
+              <p className="text-sm font-medium text-gray-400 mb-1">
+                Before MagiQ AI
+              </p>
               <p className="text-3xl font-bold">{timeSaving.before}</p>
             </div>
             <div className="text-4xl">→</div>
             <div>
-              <p className="text-sm font-medium text-gray-400 mb-1">After MagiQ AI</p>
+              <p className="text-sm font-medium text-gray-400 mb-1">
+                After MagiQ AI
+              </p>
               <p className="text-3xl font-bold">{timeSaving.after} ⚡</p>
             </div>
           </div>
         </motion.div>
       </div>
     </section>
-  )
+  );
 }
-

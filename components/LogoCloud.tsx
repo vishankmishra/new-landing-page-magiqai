@@ -1,24 +1,40 @@
-'use client'
+"use client";
 
-import { motion } from 'framer-motion'
+import { motion } from "framer-motion";
 
 interface LogoCloudProps {
-  title?: string
+  title?: string;
 }
 
-export default function LogoCloud({ title = "Used daily by more than 6,000 small and large businesses" }: LogoCloudProps) {
+export default function LogoCloud({
+  title = "Used daily by more than 6,000 small and large businesses",
+}: LogoCloudProps) {
   // Company logo placeholders - replace with actual logos
   const logos = [
-    "Google", "Microsoft", "Amazon", "Salesforce", "HubSpot",
-    "Zoom", "Slack", "Shopify", "Meta", "LinkedIn",
-    "Google", "Microsoft", "Amazon", "Salesforce", "HubSpot" // Duplicate for infinite scroll effect
-  ]
+    "Google",
+    "Microsoft",
+    "Amazon",
+    "Salesforce",
+    "HubSpot",
+    "Zoom",
+    "Slack",
+    "Shopify",
+    "Meta",
+    "LinkedIn",
+    "Google",
+    "Microsoft",
+    "Amazon",
+    "Salesforce",
+    "HubSpot", // Duplicate for infinite scroll effect
+  ];
 
   return (
     <section className="py-12 bg-white border-y border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <p className="text-center text-sm font-medium text-gray-500 mb-8">{title}</p>
-        
+        <p className="text-center text-sm font-medium text-gray-500 mb-8">
+          {title}
+        </p>
+
         {/* Scrolling Logo Strip */}
         <div className="relative overflow-hidden">
           <motion.div
@@ -38,6 +54,5 @@ export default function LogoCloud({ title = "Used daily by more than 6,000 small
         </div>
       </div>
     </section>
-  )
+  );
 }
-

@@ -1,37 +1,51 @@
-'use client'
+"use client";
 
-import { motion } from 'framer-motion'
-import Image from 'next/image'
+import { motion } from "framer-motion";
+import Image from "next/image";
 
 interface HeroProps {
-  eyebrow: string
-  headline: string
-  subheadline: string
+  eyebrow: string;
+  headline: string;
+  subheadline: string;
   primaryCTA: {
-    text: string
-    href: string
-  }
+    text: string;
+    href: string;
+  };
   secondaryCTA: {
-    text: string
-    href: string
-  }
-  trustBar: string
+    text: string;
+    href: string;
+  };
+  trustBar: string;
   badges: Array<{
-    icon: string
-    text: string
-  }>
+    icon: string;
+    text: string;
+  }>;
 }
 
-export default function HeroRedesign({ eyebrow, headline, subheadline, primaryCTA, secondaryCTA, trustBar, badges }: HeroProps) {
+export default function HeroRedesign({
+  eyebrow,
+  headline,
+  subheadline,
+  primaryCTA,
+  secondaryCTA,
+  trustBar,
+  badges,
+}: HeroProps) {
   return (
     <section className="relative pt-24 pb-16 sm:pt-32 sm:pb-24 lg:pt-40 lg:pb-32 overflow-hidden">
       {/* Gradient Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 -z-10" />
-      
+
       {/* Floating Orbs */}
       <div className="absolute top-20 left-10 w-72 h-72 bg-blue-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-float" />
-      <div className="absolute top-40 right-10 w-72 h-72 bg-purple-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-float" style={{ animationDelay: '2s' }} />
-      <div className="absolute -bottom-8 left-1/2 w-72 h-72 bg-pink-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-float" style={{ animationDelay: '4s' }} />
+      <div
+        className="absolute top-40 right-10 w-72 h-72 bg-purple-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-float"
+        style={{ animationDelay: "2s" }}
+      />
+      <div
+        className="absolute -bottom-8 left-1/2 w-72 h-72 bg-pink-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-float"
+        style={{ animationDelay: "4s" }}
+      />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -45,12 +59,14 @@ export default function HeroRedesign({ eyebrow, headline, subheadline, primaryCT
             {/* Eyebrow */}
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm border border-gray-200 mb-6">
               <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-              <span className="text-sm font-medium text-gray-700">{eyebrow}</span>
+              <span className="text-sm font-medium text-gray-700">
+                {eyebrow}
+              </span>
             </div>
 
             {/* Headline */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-              {headline.split('\n').map((line, i) => (
+              {headline.split("\n").map((line, i) => (
                 <span key={i} className="block">
                   {i === 1 ? (
                     <span className="gradient-text">{line}</span>
@@ -73,8 +89,18 @@ export default function HeroRedesign({ eyebrow, headline, subheadline, primaryCT
                 className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-gradient-to-r from-primary-600 to-accent-600 rounded-xl hover:from-primary-700 hover:to-accent-700 transition-all shadow-lg hover:shadow-xl hover:scale-105"
               >
                 {primaryCTA.text}
-                <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                <svg
+                  className="ml-2 w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M13 7l5 5m0 0l-5 5m5-5H6"
+                  />
                 </svg>
               </a>
               <a
@@ -91,9 +117,14 @@ export default function HeroRedesign({ eyebrow, headline, subheadline, primaryCT
             {/* Badges */}
             <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
               {badges.map((badge, index) => (
-                <div key={index} className="flex items-center gap-2 px-4 py-2 bg-white rounded-lg shadow-sm border border-gray-200">
+                <div
+                  key={index}
+                  className="flex items-center gap-2 px-4 py-2 bg-white rounded-lg shadow-sm border border-gray-200"
+                >
                   <span className="text-xl">{badge.icon}</span>
-                  <span className="text-sm font-medium text-gray-700">{badge.text}</span>
+                  <span className="text-sm font-medium text-gray-700">
+                    {badge.text}
+                  </span>
                 </div>
               ))}
             </div>
@@ -137,7 +168,7 @@ export default function HeroRedesign({ eyebrow, headline, subheadline, primaryCT
                   </div>
                 </div>
               </div>
-              
+
               {/* Floating Stats */}
               <motion.div
                 animate={{ y: [0, -10, 0] }}
@@ -147,7 +178,7 @@ export default function HeroRedesign({ eyebrow, headline, subheadline, primaryCT
                 <div className="text-2xl font-bold text-green-600">+127%</div>
                 <div className="text-xs text-gray-600">This Quarter</div>
               </motion.div>
-              
+
               <motion.div
                 animate={{ y: [0, 10, 0] }}
                 transition={{ duration: 3, repeat: Infinity, delay: 1 }}
@@ -161,6 +192,5 @@ export default function HeroRedesign({ eyebrow, headline, subheadline, primaryCT
         </div>
       </div>
     </section>
-  )
+  );
 }
-

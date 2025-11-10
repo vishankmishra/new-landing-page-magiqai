@@ -1,21 +1,26 @@
-'use client'
+"use client";
 
-import { motion } from 'framer-motion'
+import { motion } from "framer-motion";
 
 interface ValueProp {
-  icon: string
-  title: string
-  description: string
+  icon: string;
+  title: string;
+  description: string;
 }
 
 interface SolutionProps {
-  headline: string
-  subheadline: string
-  valueProps: ValueProp[]
-  callout: string
+  headline: string;
+  subheadline: string;
+  valueProps: ValueProp[];
+  callout: string;
 }
 
-export default function Solution({ headline, subheadline, valueProps, callout }: SolutionProps) {
+export default function Solution({
+  headline,
+  subheadline,
+  valueProps,
+  callout,
+}: SolutionProps) {
   return (
     <section className="py-16 sm:py-24 lg:py-32 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -82,6 +87,5 @@ export default function Solution({ headline, subheadline, valueProps, callout }:
         </motion.div>
       </div>
     </section>
-  )
+  );
 }
-

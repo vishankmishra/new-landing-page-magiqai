@@ -1,32 +1,36 @@
-'use client'
+"use client";
 
-import { motion } from 'framer-motion'
+import { motion } from "framer-motion";
 
 interface Stat {
-  value: string
-  label: string
-  description: string
-  color: 'blue' | 'purple' | 'green'
+  value: string;
+  label: string;
+  description: string;
+  color: "blue" | "purple" | "green";
 }
 
 interface StatsShowcaseProps {
-  headline: string
-  subheadline?: string
-  stats: Stat[]
+  headline: string;
+  subheadline?: string;
+  stats: Stat[];
 }
 
 const gradients = {
-  blue: 'from-blue-500 to-blue-600',
-  purple: 'from-purple-500 to-purple-600',
-  green: 'from-green-500 to-green-600',
-}
+  blue: "from-blue-500 to-blue-600",
+  purple: "from-purple-500 to-purple-600",
+  green: "from-green-500 to-green-600",
+};
 
-export default function StatsShowcase({ headline, subheadline, stats }: StatsShowcaseProps) {
+export default function StatsShowcase({
+  headline,
+  subheadline,
+  stats,
+}: StatsShowcaseProps) {
   return (
     <section className="py-16 sm:py-24 lg:py-32 relative overflow-hidden">
       {/* Gradient Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-white -z-10" />
-      
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
@@ -63,13 +67,21 @@ export default function StatsShowcase({ headline, subheadline, stats }: StatsSho
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="relative group"
             >
-              <div className={`bg-gradient-to-br ${gradients[stat.color]} rounded-3xl p-8 text-white shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden`}>
+              <div
+                className={`bg-gradient-to-br ${
+                  gradients[stat.color]
+                } rounded-3xl p-8 text-white shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden`}
+              >
                 {/* Background Pattern */}
                 <div className="absolute inset-0 opacity-10">
-                  <div className="absolute inset-0" style={{ 
-                    backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
-                    backgroundSize: '20px 20px'
-                  }} />
+                  <div
+                    className="absolute inset-0"
+                    style={{
+                      backgroundImage:
+                        "radial-gradient(circle, white 1px, transparent 1px)",
+                      backgroundSize: "20px 20px",
+                    }}
+                  />
                 </div>
 
                 {/* Content */}
@@ -93,6 +105,5 @@ export default function StatsShowcase({ headline, subheadline, stats }: StatsSho
         </div>
       </div>
     </section>
-  )
+  );
 }
-

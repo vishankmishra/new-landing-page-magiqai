@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import { siteContent } from '@/data/content'
+import { magiqContent } from '@/data/content-magiq'
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -10,8 +10,8 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: siteContent.meta.title,
-  description: siteContent.meta.description,
+  title: magiqContent.meta.title,
+  description: magiqContent.meta.description,
 }
 
 export default function RootLayout({
