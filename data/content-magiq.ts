@@ -35,9 +35,9 @@ export const magiqContent = {
     },
     trustBar: "Trusted by sales leaders across India • Singapore • Malaysia • UAE • United States",
     badges: [
-      { text: "89% Win Prediction Accuracy" },
-      { text: "70% Time Savings" },
-      { text: "5X Better Conversion" }
+      { icon: "🎯", text: "89% Win Prediction Accuracy" },
+      { icon: "⚡", text: "70% Time Savings" },
+      { icon: "📈", text: "5X Better Conversion" }
     ]
   },
 
