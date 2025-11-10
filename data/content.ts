@@ -163,6 +163,19 @@ export const siteContent: ContentData = {
     title: "MagiqAI - Transform Your Business with AI",
     description: "Easily create AI-powered solutions with market-leading results in just 30 minutes. No coding required.",
   },
+  navigation: {
+    logo: "MagiqAI",
+    menuItems: [
+      { label: "Features", href: "#features" },
+      { label: "Pricing", href: "#pricing" },
+      { label: "About", href: "#about" },
+      { label: "Contact", href: "#contact" },
+    ],
+    ctaButton: {
+      text: "Get Started",
+      href: "#signup",
+    },
+  },
   hero: {
     eyebrow: "AI-Powered Business Solutions",
     headline: "Transform Your Business with AI-Powered Solutions",
@@ -216,33 +229,194 @@ export const siteContent: ContentData = {
       },
     ],
   },
+  problem: {
+    headline: "The Challenges You Face Every Day",
+    subheadline: "Running a business shouldn't be this complicated",
+    painPoints: [
+      {
+        icon: "⏰",
+        title: "Time-Consuming Manual Work",
+        stats: ["Hours spent on repetitive tasks", "Limited time for strategic work"],
+        description: "Your team spends too much time on manual processes that could be automated.",
+      },
+      {
+        icon: "💰",
+        title: "High Costs, Low Efficiency",
+        stats: ["Expensive tools with limited ROI", "Wasted resources"],
+        description: "You're paying for multiple tools but not seeing the results you need.",
+      },
+      {
+        icon: "📊",
+        title: "Lack of Insights",
+        stats: ["Data scattered across platforms", "No clear visibility"],
+        description: "You have data everywhere but no clear picture of what's working.",
+      },
+      {
+        icon: "🔗",
+        title: "Integration Headaches",
+        stats: ["Complex integrations", "Broken workflows"],
+        description: "Your tools don't talk to each other, creating silos and inefficiencies.",
+      },
+    ],
+    transition: "There's a better way. And it starts with MagiqAI.",
+  },
+  solution: {
+    headline: "Everything You Need, All in One Place",
+    subheadline: "Streamline your operations with intelligent automation and powerful insights",
+    valueProps: [
+      {
+        icon: "🚀",
+        title: "Automate Everything",
+        description: "Eliminate manual work with intelligent automation that adapts to your needs.",
+      },
+      {
+        icon: "📈",
+        title: "Real-Time Insights",
+        description: "Get a complete view of your business with unified dashboards and analytics.",
+      },
+      {
+        icon: "🔌",
+        title: "Seamless Integration",
+        description: "Connect all your tools in one place with our powerful integration platform.",
+      },
+    ],
+    callout: "Join thousands of businesses that have transformed their operations with MagiqAI.",
+  },
+  howItWorks: {
+    headline: "How It Works",
+    subheadline: "Get started in minutes, see results in days",
+    steps: [
+      {
+        number: 1,
+        title: "Sign Up",
+        description: "Create your account and set up your workspace in minutes.",
+        details: [],
+      },
+      {
+        number: 2,
+        title: "Connect Your Tools",
+        description: "Integrate with your existing tools and platforms.",
+        details: [],
+      },
+      {
+        number: 3,
+        title: "Automate Your Workflows",
+        description: "Set up intelligent automation to streamline your processes.",
+        details: [],
+      },
+      {
+        number: 4,
+        title: "See Results",
+        description: "Watch your efficiency improve and your team focus on what matters.",
+        details: [],
+      },
+    ],
+    timeSaving: {
+      before: "Weeks of setup",
+      after: "Minutes to deploy",
+    },
+  },
+  useCases: {
+    headline: "Built for Every Team",
+    subheadline: "See how different teams use MagiqAI to transform their work",
+    cases: [
+      {
+        icon: "💼",
+        title: "Sales Teams",
+        challenge: "Managing leads, tracking deals, and closing more business",
+        solution: [
+          "Automated lead management",
+          "Pipeline tracking",
+          "Deal insights"
+        ],
+        results: [
+          "30% more deals closed",
+          "50% time savings",
+          "Better forecast accuracy"
+        ],
+        bestFor: "Sales managers, AEs, SDRs",
+      },
+      {
+        icon: "📢",
+        title: "Marketing Teams",
+        challenge: "Running campaigns, tracking performance, and proving ROI",
+        solution: [
+          "Campaign automation",
+          "Performance tracking",
+          "ROI analytics"
+        ],
+        results: [
+          "2X campaign efficiency",
+          "Real-time insights",
+          "Proven ROI"
+        ],
+        bestFor: "Marketing managers, CMOs, Growth teams",
+      },
+    ],
+  },
   features: {
-    title: "All You Need to Grow in One Place",
-    subtitle: "The fastest AI platform you'll ever use. Build your first solution in just 30 minutes, track key metrics, and scale seamlessly - all in one beautifully designed platform.",
+    headline: "All You Need to Grow in One Place",
+    subheadline: "The fastest AI platform you'll ever use. Build your first solution in just 30 minutes, track key metrics, and scale seamlessly - all in one beautifully designed platform.",
     items: [
       {
+        icon: "🤖",
         title: "AI-Powered Automation",
         description: "Automate complex workflows with intelligent AI that learns and adapts to your business needs.",
+        benefits: [
+          "Intelligent workflow automation",
+          "Adaptive learning algorithms",
+          "Seamless integration capabilities"
+        ],
       },
       {
+        icon: "📊",
         title: "Real-Time Analytics",
         description: "Gain actionable insights with real-time dashboards that show exactly what's working.",
+        benefits: [
+          "Real-time data visualization",
+          "Customizable dashboards",
+          "Advanced reporting tools"
+        ],
       },
       {
+        icon: "🔌",
         title: "Smart Integrations",
         description: "Connect seamlessly with all your favorite tools - no technical knowledge required.",
+        benefits: [
+          "One-click integrations",
+          "API access",
+          "Webhook support"
+        ],
       },
       {
+        icon: "💼",
         title: "Flexible CRM",
         description: "Manage, track, and close deals with a CRM that adapts to your workflow.",
+        benefits: [
+          "Customizable pipelines",
+          "Contact management",
+          "Deal tracking"
+        ],
       },
       {
+        icon: "👥",
         title: "Team Collaboration",
         description: "Create workspaces for your team and clients with granular access control.",
+        benefits: [
+          "Role-based permissions",
+          "Team workspaces",
+          "Client portals"
+        ],
       },
       {
+        icon: "📱",
         title: "Mobile-First Design",
         description: "Built for modern businesses - works perfectly on any device, anywhere.",
+        benefits: [
+          "Responsive design",
+          "Mobile apps",
+          "Offline capabilities"
+        ],
       },
     ],
   },
@@ -271,38 +445,58 @@ export const siteContent: ContentData = {
     ],
   },
   testimonials: {
-    title: "Results That Speak for Themselves",
-    subtitle: "We asked our customers to share their results. Here's what they said 👇",
+    headline: "Results That Speak for Themselves",
+    subheadline: "We asked our customers to share their results. Here's what they said 👇",
     items: [
       {
         quote: "Generated 8,000 qualified leads in two weeks with one campaign. The AI optimization is insane.",
         author: "Sarah Johnson",
         role: "CEO",
         company: "Forward Digital",
-        metric: "8,000 leads in 2 weeks",
+        companyInfo: "Digital Marketing Agency • 50+ employees",
+        metrics: [
+          { icon: "📈", text: "8,000 leads in 2 weeks" }
+        ],
       },
       {
         quote: "It's so powerful - the difference is that it's built for modern businesses. Absolutely game-changing for our workflow.",
         author: "Michael Chen",
         role: "Founder",
         company: "GrowthCat",
-        metric: "$10M ARR in 3 years",
+        companyInfo: "SaaS Platform • $10M ARR",
+        metrics: [
+          { icon: "💰", text: "$10M ARR in 3 years" }
+        ],
       },
       {
         quote: "I built our entire automation system in less than 30 minutes. That same system made over $50,000 in less than 10 days.",
         author: "Emily Rodriguez",
         role: "Marketing Director",
         company: "ScaleUp Inc",
-        metric: "$50K in 10 days",
+        companyInfo: "B2B Services • 200+ employees",
+        metrics: [
+          { icon: "⚡", text: "$50K in 10 days" }
+        ],
       },
       {
         quote: "Generated over 10,000 new customers in three months. The platform pays for itself 100x over.",
         author: "David Park",
         role: "Growth Lead",
         company: "Venture Labs",
-        metric: "10,000+ customers",
+        companyInfo: "Tech Startup • Series A",
+        metrics: [
+          { icon: "🚀", text: "10,000+ customers" }
+        ],
       },
     ],
+    aggregateMetrics: {
+      title: "Average Results Across All Customers",
+      items: [
+        { icon: "📈", text: "300% average growth" },
+        { icon: "⚡", text: "50% time savings" },
+        { icon: "💰", text: "5X ROI improvement" }
+      ],
+    },
   },
   community: {
     title: "Become an Expert. For Free.",
@@ -335,8 +529,7 @@ export const siteContent: ContentData = {
     ],
   },
   faq: {
-    title: "Frequently Asked Questions",
-    subtitle: "Everything you need to know",
+    headline: "Frequently Asked Questions",
     items: [
       {
         question: "How does the free trial work?",
@@ -361,19 +554,75 @@ export const siteContent: ContentData = {
     ],
   },
   pricing: {
-    title: "Ready to Get Started?",
-    subtitle: "Join thousands of teams already using our platform",
-    cta: {
-      text: "Start Free Trial",
-      href: "#signup",
-    },
+    headline: "Ready to Get Started?",
+    subheadline: "Join thousands of teams already using our platform",
+    plans: [
+      {
+        name: "Starter",
+        price: "$29",
+        period: "/month",
+        description: "Perfect for small teams getting started",
+        features: [
+          "Up to 5 team members",
+          "Basic automation",
+          "Email support",
+          "10 integrations"
+        ],
+        cta: {
+          text: "Start Free Trial",
+          href: "#signup",
+        },
+      },
+      {
+        name: "Professional",
+        price: "$99",
+        period: "/month",
+        description: "For growing teams that need more power",
+        features: [
+          "Up to 25 team members",
+          "Advanced automation",
+          "Priority support",
+          "Unlimited integrations",
+          "Custom workflows"
+        ],
+        cta: {
+          text: "Start Free Trial",
+          href: "#signup",
+        },
+        badge: "Most Popular",
+        popular: true,
+      },
+      {
+        name: "Enterprise",
+        price: "Custom",
+        period: "",
+        description: "For large organizations with custom needs",
+        features: [
+          "Unlimited team members",
+          "Enterprise automation",
+          "Dedicated support",
+          "Custom integrations",
+          "SSO & advanced security",
+          "Custom SLA"
+        ],
+        cta: {
+          text: "Contact Sales",
+          href: "#contact",
+        },
+      },
+    ],
+    notes: [
+      "14-day free trial on all plans",
+      "No credit card required",
+      "Cancel anytime"
+    ],
   },
   footer: {
     tagline: "Empowering teams with intelligent automation",
-    links: [
+    sections: [
       {
         title: "Product",
-        items: [
+        links: [
           { label: "Features", href: "#features" },
           { label: "Pricing", href: "#pricing" },
           { label: "Security", href: "#security" },
@@ -382,7 +631,7 @@ export const siteContent: ContentData = {
       },
       {
         title: "Company",
-        items: [
+        links: [
           { label: "About", href: "#about" },
           { label: "Blog", href: "#blog" },
           { label: "Careers", href: "#careers" },
@@ -391,7 +640,7 @@ export const siteContent: ContentData = {
       },
       {
         title: "Resources",
-        items: [
+        links: [
           { label: "Documentation", href: "#docs" },
           { label: "API", href: "#api" },
           { label: "Support", href: "#support" },
@@ -400,17 +649,12 @@ export const siteContent: ContentData = {
       },
       {
         title: "Legal",
-        items: [
+        links: [
           { label: "Privacy", href: "#privacy" },
           { label: "Terms", href: "#terms" },
           { label: "Cookie Policy", href: "#cookies" },
         ],
       },
-    ],
-    social: [
-      { platform: "Twitter", href: "https://twitter.com" },
-      { platform: "LinkedIn", href: "https://linkedin.com" },
-      { platform: "GitHub", href: "https://github.com" },
     ],
   },
 };
