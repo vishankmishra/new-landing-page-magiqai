@@ -97,7 +97,7 @@ export default function PricingMagiq({ headline, subheadline, plans, notes }: Pr
 
               {/* Features */}
               <div className="space-y-3">
-                <p className="text-sm font-semibold text-gray-900">What's Included:</p>
+                <p className="text-sm font-semibold text-gray-900">What&apos;s Included:</p>
                 {plan.features.map((feature, featureIndex) => (
                   <div key={featureIndex} className="flex items-start gap-2">
                     <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">

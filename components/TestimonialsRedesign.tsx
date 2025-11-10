@@ -73,11 +73,11 @@ export default function TestimonialsRedesign({ headline, subheadline, items, agg
               <div className="absolute inset-0 bg-gradient-to-br from-primary-500 to-accent-500 opacity-0 group-hover:opacity-10 transition-opacity duration-300 rounded-2xl" />
 
               {/* Quote Icon */}
-              <div className="absolute top-6 right-6 text-6xl text-primary-100 font-serif">"</div>
+              <div className="absolute top-6 right-6 text-6xl text-primary-100 font-serif">&ldquo;</div>
 
               {/* Quote */}
               <p className="text-gray-900 leading-relaxed mb-6 relative z-10">
-                "{testimonial.quote}"
+                &ldquo;{testimonial.quote}&rdquo;
               </p>
 
               {/* Author with Avatar */}

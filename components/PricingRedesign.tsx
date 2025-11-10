@@ -121,7 +121,7 @@ export default function PricingRedesign({ headline, subheadline, plans, notes }:
 
                 {/* Features */}
                 <div className="space-y-3">
-                  <p className="text-sm font-semibold text-gray-900 mb-3">What's Included:</p>
+                  <p className="text-sm font-semibold text-gray-900 mb-3">What&apos;s Included:</p>
                   {plan.features.map((feature, featureIndex) => (
                     <div key={featureIndex} className="flex items-start gap-2">
                       <svg className={`w-5 h-5 flex-shrink-0 mt-0.5 ${plan.popular ? 'text-primary-600' : 'text-green-600'}`} fill="currentColor" viewBox="0 0 20 20">

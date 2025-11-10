@@ -66,7 +66,7 @@ export default function TestimonialsMagiq({ headline, subheadline, items, aggreg
             >
               {/* Quote */}
               <p className="text-gray-900 leading-relaxed mb-6">
-                "{testimonial.quote}"
+                &ldquo;{testimonial.quote}&rdquo;
               </p>
 
               {/* Author */}
