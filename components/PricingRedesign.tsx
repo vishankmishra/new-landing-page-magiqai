@@ -85,7 +85,7 @@ export default function PricingRedesign({ headline, subheadline, plans, notes }:
               {/* Gradient Header */}
               {plan.popular && (
                 <div className={`bg-gradient-to-br ${cardStyles[plan.gradient || 'purple']} p-6 text-white`}>
-                  <div className="text-center">
+                  <div className="text-left">
                     <div className="text-5xl font-bold mb-2">{plan.price}</div>
                     <div className="text-sm opacity-90">{plan.period}</div>
                   </div>
@@ -94,11 +94,11 @@ export default function PricingRedesign({ headline, subheadline, plans, notes }:
 
               <div className="p-8">
                 {/* Plan Name */}
-                <h3 className="text-2xl font-bold text-gray-900 mb-2 text-center">{plan.name}</h3>
+                <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">{plan.name}</h3>
 
                 {/* Price (if not popular) */}
                 {!plan.popular && (
-                  <div className="text-center mb-4">
+                  <div className="text-left mb-4">
                     <span className="text-5xl font-bold text-gray-900">{plan.price}</span>
                     <span className="text-gray-600 ml-2">{plan.period}</span>
                   </div>

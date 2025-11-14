@@ -81,7 +81,7 @@ export default function Solution({
           transition={{ duration: 0.5, delay: 0.4 }}
           className="text-center"
         >
-          <p className="text-lg font-medium text-gray-900 max-w-3xl mx-auto">
+          <p className="text-2xl font-bold text-purple-600 max-w-3xl mx-auto">
             {callout}
           </p>
         </motion.div>

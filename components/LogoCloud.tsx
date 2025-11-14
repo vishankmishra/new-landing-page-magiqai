@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 interface LogoCloudProps {
   title?: string;
@@ -9,23 +10,23 @@ interface LogoCloudProps {
 export default function LogoCloud({
   title = "Used daily by more than 6,000 small and large businesses",
 }: LogoCloudProps) {
-  // Company logo placeholders - replace with actual logos
+  // Company logo placeholders - using placeholder service until real logos are added
   const logos = [
-    "Google",
-    "Microsoft",
-    "Amazon",
-    "Salesforce",
-    "HubSpot",
-    "Zoom",
-    "Slack",
-    "Shopify",
-    "Meta",
-    "LinkedIn",
-    "Google",
-    "Microsoft",
-    "Amazon",
-    "Salesforce",
-    "HubSpot", // Duplicate for infinite scroll effect
+    { name: "Google", src: "https://placehold.co/120x40?text=Google" },
+    { name: "Microsoft", src: "https://placehold.co/120x40?text=Microsoft" },
+    { name: "Amazon", src: "https://placehold.co/120x40?text=Amazon" },
+    { name: "Salesforce", src: "https://placehold.co/120x40?text=Salesforce" },
+    { name: "HubSpot", src: "https://placehold.co/120x40?text=HubSpot" },
+    { name: "Zoom", src: "https://placehold.co/120x40?text=Zoom" },
+    { name: "Slack", src: "https://placehold.co/120x40?text=Slack" },
+    { name: "Shopify", src: "https://placehold.co/120x40?text=Shopify" },
+    { name: "Meta", src: "https://placehold.co/120x40?text=Meta" },
+    { name: "LinkedIn", src: "https://placehold.co/120x40?text=LinkedIn" },
+    { name: "Google", src: "https://placehold.co/120x40?text=Google" },
+    { name: "Microsoft", src: "https://placehold.co/120x40?text=Microsoft" },
+    { name: "Amazon", src: "https://placehold.co/120x40?text=Amazon" },
+    { name: "Salesforce", src: "https://placehold.co/120x40?text=Salesforce" },
+    { name: "HubSpot", src: "https://placehold.co/120x40?text=HubSpot" }, // Duplicate for infinite scroll effect
   ];
 
   return (
@@ -36,18 +37,22 @@ export default function LogoCloud({
         </p>
 
         {/* Scrolling Logo Strip */}
-        <div className="relative overflow-hidden">
+        <div className="relative overflow-hidden h-20">
           <motion.div
             animate={{ x: [0, -1920] }}
             transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-            className="flex gap-12 items-center"
+            className="flex gap-12 items-center h-full"
           >
             {logos.map((logo, index) => (
               <div
                 key={index}
-                className="flex-shrink-0 w-32 h-16 flex items-center justify-center grayscale hover:grayscale-0 transition-all opacity-50 hover:opacity-100"
+                className="flex-shrink-0 w-32 h-16 flex items-center justify-center grayscale hover:grayscale-0 transition-all"
               >
-                <div className="text-lg font-bold text-gray-400">{logo}</div>
+                <img 
+                  src={logo.src} 
+                  alt={`${logo.name} logo`}
+                  className="max-w-full max-h-full object-contain opacity-50 hover:opacity-100 transition-opacity"
+                />
               </div>
             ))}
           </motion.div>

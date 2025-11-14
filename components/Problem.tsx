@@ -43,7 +43,7 @@ export default function Problem({ headline, subheadline, painPoints, transition 
         </div>
 
         {/* Pain Points Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-16">
           {painPoints.map((point, index) => (
             <motion.div
               key={index}
@@ -51,13 +51,13 @@ export default function Problem({ headline, subheadline, painPoints, transition 
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white rounded-2xl p-6 border border-gray-200"
+              className="bg-gray-50 rounded-2xl p-6 border border-gray-200"
             >
               {/* Icon */}
-              <div className="text-4xl mb-4">{point.icon}</div>
+              <div className="text-7xl mb-4">{point.icon}</div>
 
               {/* Title */}
-              <h3 className="text-xl font-bold text-gray-900 mb-4">
+              <h3 className="text-2xl font-extrabold text-gray-900 mb-4">
                 {point.title}
               </h3>
 

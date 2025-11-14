@@ -74,58 +74,79 @@ export default function FeaturesRedesign({ headline, subheadline, items }: Featu
               transition={{ duration: 0.5, delay: index * 0.05 }}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
-              className="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
+              className="group relative h-[400px]"
+              style={{ perspective: '1000px' }}
             >
-              {/* Gradient Header */}
-              <div className={`bg-gradient-to-br ${gradients[feature.gradient]} p-6 text-white relative overflow-hidden`}>
-                {/* Background Pattern */}
-                <div className="absolute inset-0 opacity-20">
-                  <div className="absolute inset-0" style={{ 
-                    backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
-                    backgroundSize: '16px 16px'
-                  }} />
-                </div>
+              {/* Flip Card Container */}
+              <div 
+                className="relative w-full h-full transition-transform duration-700 ease-in-out"
+                style={{ 
+                  transformStyle: 'preserve-3d',
+                  transform: hoveredIndex === index ? 'rotateY(180deg)' : 'rotateY(0deg)'
+                }}
+              >
+                {/* Front of Card */}
+                <div 
+                  className="absolute inset-0 w-full h-full bg-white rounded-2xl shadow-lg overflow-hidden"
+                  style={{ 
+                    backfaceVisibility: 'hidden',
+                    WebkitBackfaceVisibility: 'hidden',
+                    transform: 'rotateY(0deg)'
+                  }}
+                >
+                  <div className={`bg-gradient-to-br ${gradients[feature.gradient]} p-8 text-white h-full flex flex-col items-center justify-center text-center`}>
+                    {/* Background Pattern */}
+                    <div className="absolute inset-0 opacity-20">
+                      <div className="absolute inset-0" style={{ 
+                        backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
+                        backgroundSize: '16px 16px'
+                      }} />
+                    </div>
 
-                {/* Icon & Title */}
-                <div className="relative z-10">
-                  <div className="text-4xl mb-3">{feature.icon}</div>
-                  <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
-                  <p className="text-sm opacity-90">{feature.description}</p>
-                </div>
-
-                {/* Shine Effect */}
-                <div className={`absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-0 ${hoveredIndex === index ? 'opacity-20' : ''} transform -skew-x-12 transition-all duration-1000 ${hoveredIndex === index ? 'translate-x-full' : '-translate-x-full'}`} />
-              </div>
-
-              {/* Benefits List */}
-              <div className="p-6 space-y-3">
-                {feature.benefits.slice(0, 3).map((benefit, benefitIndex) => (
-                  <div key={benefitIndex} className="flex items-start gap-2">
-                    <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                    </svg>
-                    <span className="text-sm text-gray-700 leading-snug">{benefit}</span>
-                  </div>
-                ))}
-
-                {feature.benefits.length > 3 && (
-                  <button className="text-sm font-medium text-primary-600 hover:text-primary-700 flex items-center gap-1">
-                    +{feature.benefits.length - 3} more features
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </button>
-                )}
-              </div>
-
-              {/* Extra Info */}
-              {feature.extra && (
-                <div className="px-6 pb-6">
-                  <div className="pt-4 border-t border-gray-200">
-                    <p className="text-xs text-gray-500">{feature.extra}</p>
+                    {/* Icon & Title & Description */}
+                    <div className="relative z-10">
+                      <div className="text-5xl mb-4">{feature.icon}</div>
+                      <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
+                      <p className="text-sm opacity-90 leading-relaxed">{feature.description}</p>
+                    </div>
                   </div>
                 </div>
-              )}
+
+                {/* Back of Card (Benefits) */}
+                <div 
+                  className="absolute inset-0 w-full h-full bg-white rounded-2xl shadow-lg overflow-hidden"
+                  style={{ 
+                    backfaceVisibility: 'hidden',
+                    WebkitBackfaceVisibility: 'hidden',
+                    transform: 'rotateY(180deg)'
+                  }}
+                >
+                  <div className="p-6 h-full flex flex-col">
+                    <div className={`bg-gradient-to-br ${gradients[feature.gradient]} p-4 rounded-lg mb-4`}>
+                      <div className="text-3xl mb-2">{feature.icon}</div>
+                      <h3 className="text-lg font-bold text-white">{feature.title}</h3>
+                    </div>
+                    
+                    <div className="flex-1 overflow-y-auto space-y-3">
+                      {feature.benefits.map((benefit, benefitIndex) => (
+                        <div key={benefitIndex} className="flex items-start gap-2">
+                          <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                          </svg>
+                          <span className="text-sm text-gray-700 leading-snug">{benefit}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Extra Info */}
+                    {feature.extra && (
+                      <div className="pt-4 mt-auto border-t border-gray-200">
+                        <p className="text-xs text-gray-500">{feature.extra}</p>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
             </motion.div>
           ))}
         </div>

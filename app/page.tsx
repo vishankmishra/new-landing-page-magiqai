@@ -41,18 +41,26 @@ export default function Home() {
       <Navigation {...magiqContent.navigation} />
       <HeroRedesign {...magiqContent.hero} />
       <LogoCloud />
-      <StatsShowcase 
+      {/* <StatsShowcase 
         headline="Results in All Business-Critical Areas"
         subheadline="We analyzed over 100,000 funnels on our platform to create the highest-converting templates"
         stats={stats}
-      />
+      /> */}
       <Problem {...magiqContent.problem} />
       <Solution {...magiqContent.solution} />
-      <HowItWorks {...magiqContent.howItWorks} />
-      <FeaturesRedesign {...magiqContent.features} />
-      <TestimonialsRedesign {...magiqContent.testimonials} />
-      <UseCases {...magiqContent.useCases} />
-      <PricingRedesign {...magiqContent.pricing} />
+      <section id="how-it-works">
+        <HowItWorks {...magiqContent.howItWorks} />
+      </section>
+      <section id="features">
+        <FeaturesRedesign {...magiqContent.features} />
+      </section>
+      {/* <TestimonialsRedesign {...magiqContent.testimonials} /> */}
+      <section id="use-cases">
+        <UseCases {...magiqContent.useCases} />
+      </section>
+      <section id="pricing">
+        <PricingRedesign {...magiqContent.pricing} />
+      </section>
       <FAQMagiq {...magiqContent.faq} />
       <Footer 
         tagline="Empowering sales teams with AI-powered intelligence"

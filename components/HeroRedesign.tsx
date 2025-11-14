@@ -138,7 +138,7 @@ export default function HeroRedesign({
             className="relative"
           >
             {/* Product Screenshot Placeholder */}
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl border-8 border-white bg-white">
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-blue-500/20 border border-white/50 bg-white">
               <div className="aspect-[4/3] bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100 flex items-center justify-center">
                 <div className="text-center p-8">
                   <div className="w-full h-full bg-white rounded-xl shadow-lg p-6 space-y-4">

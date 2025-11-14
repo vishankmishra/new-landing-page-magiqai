@@ -27,7 +27,7 @@ export default function StatsShowcase({
   stats,
 }: StatsShowcaseProps) {
   return (
-    <section className="py-16 sm:py-24 lg:py-32 relative overflow-hidden">
+    <section className="pt-12 pb-16 sm:pb-24 lg:pb-32 relative overflow-hidden">
       {/* Gradient Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-white -z-10" />
 
@@ -57,7 +57,7 @@ export default function StatsShowcase({
         </div>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-6">
           {stats.map((stat, index) => (
             <motion.div
               key={index}
@@ -103,6 +103,20 @@ export default function StatsShowcase({
             </motion.div>
           ))}
         </div>
+
+        {/* Credibility Footnote */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="text-center"
+        >
+          <p className="text-xs text-gray-500 italic">
+            *Observed in TechSolutions India Pilot and verified across 100+
+            customer deployments
+          </p>
+        </motion.div>
       </div>
     </section>
   );
