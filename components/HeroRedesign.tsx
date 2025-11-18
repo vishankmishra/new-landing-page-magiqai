@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
+import YouTubePlayer from "./YouTubePlayer";
 
 interface HeroProps {
   eyebrow: string;
@@ -137,43 +137,21 @@ export default function HeroRedesign({
             transition={{ duration: 0.6, delay: 0.2 }}
             className="relative"
           >
-            {/* Product Screenshot Placeholder */}
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-blue-500/20 border border-white/50 bg-white">
-              <div className="aspect-[4/3] bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100 flex items-center justify-center">
-                <div className="text-center p-8">
-                  <div className="w-full h-full bg-white rounded-xl shadow-lg p-6 space-y-4">
-                    {/* Mock Dashboard UI */}
-                    <div className="flex items-center justify-between">
-                      <div className="h-8 w-32 bg-gradient-to-r from-primary-400 to-accent-400 rounded" />
-                      <div className="flex gap-2">
-                        <div className="h-8 w-8 bg-gray-200 rounded-full" />
-                        <div className="h-8 w-8 bg-gray-200 rounded-full" />
-                      </div>
-                    </div>
-                    <div className="grid grid-cols-2 gap-4">
-                      <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg p-4 text-white">
-                        <div className="text-3xl font-bold mb-1">87%</div>
-                        <div className="text-sm opacity-90">Win Rate</div>
-                      </div>
-                      <div className="bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg p-4 text-white">
-                        <div className="text-3xl font-bold mb-1">5X</div>
-                        <div className="text-sm opacity-90">Conversion</div>
-                      </div>
-                    </div>
-                    <div className="space-y-2">
-                      <div className="h-12 bg-gray-100 rounded-lg" />
-                      <div className="h-12 bg-gray-100 rounded-lg" />
-                      <div className="h-12 bg-gray-100 rounded-lg" />
-                    </div>
-                  </div>
-                </div>
+            {/* YouTube Video Player */}
+            <div className="relative">
+              <div className="aspect-video">
+                <YouTubePlayer
+                  videoId="QT67KkYvhIc"
+                  defaultSpeed={2}
+                  className="w-full h-full"
+                />
               </div>
 
               {/* Floating Stats */}
               <motion.div
                 animate={{ y: [0, -10, 0] }}
                 transition={{ duration: 3, repeat: Infinity }}
-                className="absolute top-4 -right-4 bg-white rounded-xl shadow-xl p-4 border-2 border-green-200"
+                className="absolute top-4 -right-4 bg-white rounded-xl shadow-xl p-4 border-2 border-green-200 z-20"
               >
                 <div className="text-2xl font-bold text-green-600">+127%</div>
                 <div className="text-xs text-gray-600">This Quarter</div>
@@ -182,7 +160,7 @@ export default function HeroRedesign({
               <motion.div
                 animate={{ y: [0, 10, 0] }}
                 transition={{ duration: 3, repeat: Infinity, delay: 1 }}
-                className="absolute bottom-4 -left-4 bg-white rounded-xl shadow-xl p-4 border-2 border-blue-200"
+                className="absolute bottom-4 -left-4 bg-white rounded-xl shadow-xl p-4 border-2 border-blue-200 z-20"
               >
                 <div className="text-2xl font-bold text-blue-600">2.4k</div>
                 <div className="text-xs text-gray-600">New Leads</div>
