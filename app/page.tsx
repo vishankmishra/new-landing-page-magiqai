@@ -1,6 +1,5 @@
 import Navigation from "@/components/Navigation";
 import HeroRedesign from "@/components/HeroRedesign";
-import LogoCloud from "@/components/LogoCloud";
 import StatsShowcase from "@/components/StatsShowcase";
 import Problem from "@/components/Problem";
 import Solution from "@/components/Solution";
@@ -40,7 +39,6 @@ export default function Home() {
     <main className="min-h-screen bg-white">
       <Navigation {...magiqContent.navigation} />
       <HeroRedesign {...magiqContent.hero} />
-      <LogoCloud />
       {/* <StatsShowcase 
         headline="Results in All Business-Critical Areas"
         subheadline="We analyzed over 100,000 funnels on our platform to create the highest-converting templates"
@@ -75,29 +73,10 @@ export default function Home() {
             ]
           },
           {
-            title: "Company",
-            links: [
-              { label: "About", href: "#about" },
-              { label: "Blog", href: "#blog" },
-              { label: "Careers", href: "#careers" },
-              { label: "Contact", href: "#contact" }
-            ]
-          },
-          {
-            title: "Resources",
-            links: [
-              { label: "Documentation", href: "#docs" },
-              { label: "Help Center", href: "#help" },
-              { label: "API", href: "#api" },
-              { label: "Community", href: "#community" }
-            ]
-          },
-          {
             title: "Legal",
             links: [
               { label: "Privacy", href: "#privacy" },
-              { label: "Terms", href: "#terms" },
-              { label: "Security", href: "#security" }
+              { label: "Terms", href: "#terms" }
             ]
           }
         ]}

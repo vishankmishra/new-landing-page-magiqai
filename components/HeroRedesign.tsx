@@ -146,25 +146,6 @@ export default function HeroRedesign({
                   className="w-full h-full"
                 />
               </div>
-
-              {/* Floating Stats */}
-              <motion.div
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 3, repeat: Infinity }}
-                className="absolute top-4 -right-4 bg-white rounded-xl shadow-xl p-4 border-2 border-green-200 z-20"
-              >
-                <div className="text-2xl font-bold text-green-600">+127%</div>
-                <div className="text-xs text-gray-600">This Quarter</div>
-              </motion.div>
-
-              <motion.div
-                animate={{ y: [0, 10, 0] }}
-                transition={{ duration: 3, repeat: Infinity, delay: 1 }}
-                className="absolute bottom-4 -left-4 bg-white rounded-xl shadow-xl p-4 border-2 border-blue-200 z-20"
-              >
-                <div className="text-2xl font-bold text-blue-600">2.4k</div>
-                <div className="text-xs text-gray-600">New Leads</div>
-              </motion.div>
             </div>
           </motion.div>
         </div>

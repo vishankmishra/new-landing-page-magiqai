@@ -112,7 +112,7 @@ export default function HowItWorks({
               {/* Timeline Line */}
               <div className="absolute top-16 left-0 right-0 h-0.5 bg-gradient-to-r from-primary-200 via-accent-200 to-primary-200" />
               
-              <div className="grid grid-cols-6 gap-4">
+              <div className="grid grid-cols-6 gap-4 items-stretch">
                 {steps.map((step, index) => (
                   <motion.div
                     key={index}
@@ -120,10 +120,10 @@ export default function HowItWorks({
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="relative"
+                    className="relative flex flex-col"
                   >
                     {/* Step Number Circle */}
-                    <div className="flex justify-center mb-6 relative z-10">
+                    <div className="flex justify-center mb-6 relative z-10 flex-shrink-0">
                       <div className="w-16 h-16 bg-gradient-to-br from-primary-600 to-accent-600 text-white rounded-full flex items-center justify-center font-bold text-2xl shadow-xl border-4 border-white">
                         {step.number}
                       </div>
@@ -139,7 +139,7 @@ export default function HowItWorks({
                     )}
 
                     {/* Card Content */}
-                    <div className="bg-white rounded-xl p-4 border border-gray-200 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                    <div className="bg-white rounded-xl p-4 border border-gray-200 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col flex-grow">
                       <h3 className="text-base font-bold text-gray-900 mb-2 leading-tight">
                         {step.title}
                       </h3>
@@ -148,7 +148,7 @@ export default function HowItWorks({
                       </p>
 
                       {step.details && step.details.length > 0 && (
-                        <ul className="space-y-1">
+                        <ul className="space-y-1 flex-grow">
                           {step.details.map((detail, detailIndex) => (
                             <li
                               key={detailIndex}

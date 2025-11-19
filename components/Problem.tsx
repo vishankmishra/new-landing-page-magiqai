@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 interface PainPoint {
   icon: string
   title: string
+  shortTag?: string
   stats: Array<string>
   description: string
 }
@@ -53,6 +54,15 @@ export default function Problem({ headline, subheadline, painPoints, transition 
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="bg-gray-50 rounded-2xl p-6 border border-gray-200"
             >
+              {/* Short Tag Badge */}
+              {point.shortTag && (
+                <div className="mb-4">
+                  <span className="inline-block px-3 py-1.5 text-xs font-semibold text-primary-700 bg-primary-100 rounded-lg">
+                    {point.shortTag}
+                  </span>
+                </div>
+              )}
+
               {/* Icon */}
               <div className="text-7xl mb-4">{point.icon}</div>
 

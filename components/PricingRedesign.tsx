@@ -7,6 +7,7 @@ interface CreditPack {
   credits: number;
   price: number;
   description: string;
+  extraInfo?: string;
   popular?: boolean;
   gradient?: "blue" | "purple" | "green" | "indigo";
 }
@@ -21,7 +22,7 @@ interface PricingProps {
   headline: string;
   subheadline: string;
   creditPacks: CreditPack[];
-  featureCosts: FeatureCost[];
+  featureCosts?: FeatureCost[];
   notes: Array<string>;
 }
 
@@ -98,37 +99,19 @@ export default function PricingRedesign({
                 </div>
               )}
 
-              {/* Gradient Header */}
-              {pack.popular && (
-                <div
-                  className={`bg-gradient-to-br ${
-                    cardStyles[pack.gradient || "purple"]
-                  } p-6 text-white`}
-                >
-                  <div className="text-center">
-                    <div className="text-4xl font-bold mb-1">
-                      {pack.credits.toLocaleString()}
-                    </div>
-                    <div className="text-sm opacity-90">Credits</div>
-                  </div>
-                </div>
-              )}
-
               <div className="p-6">
                 {/* Pack Name */}
                 <h3 className="text-xl font-bold text-gray-900 mb-2 text-center">
                   {pack.name}
                 </h3>
 
-                {/* Price (if not popular) */}
-                {!pack.popular && (
-                  <div className="text-center mb-4">
-                    <div className="text-4xl font-bold text-gray-900">
-                      {pack.credits.toLocaleString()}
-                    </div>
-                    <div className="text-sm text-gray-600">Credits</div>
+                {/* Credits Display */}
+                <div className="text-center mb-4">
+                  <div className="text-4xl font-bold text-gray-900">
+                    {pack.credits.toLocaleString()}
                   </div>
-                )}
+                  <div className="text-sm text-gray-600">Credits</div>
+                </div>
 
                 {/* Price Display */}
                 <div className="text-center mb-4">
@@ -139,9 +122,18 @@ export default function PricingRedesign({
                 </div>
 
                 {/* Description */}
-                <p className="text-sm text-gray-600 text-center mb-6">
+                <p className="text-sm text-gray-600 text-center mb-2">
                   {pack.description}
                 </p>
+
+                {/* Extra Info */}
+                {pack.extraInfo && (
+                  <p className="text-sm font-semibold text-primary-600 text-center mb-6">
+                    {pack.extraInfo}
+                  </p>
+                )}
+
+                {!pack.extraInfo && <div className="mb-6" />}
 
                 {/* CTA */}
                 <a
@@ -159,90 +151,31 @@ export default function PricingRedesign({
           ))}
         </div>
 
-        {/* Feature Credit Costs Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="mb-16"
-        >
-          <div className="max-w-4xl mx-auto">
-            <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 text-center mb-4">
-              Feature Credit Costs
-            </h3>
-            <p className="text-gray-600 text-center mb-8">
-              Transparent pricing for every feature. Know exactly how many
-              credits each action consumes.
-            </p>
-
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
-              <div className="overflow-x-auto">
-                <table className="w-full">
-                  <thead className="bg-gray-50">
-                    <tr>
-                      <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900">
-                        Feature
-                      </th>
-                      <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900">
-                        Description
-                      </th>
-                      <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900">
-                        Credits
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-gray-200">
-                    {featureCosts.map((feature, index) => (
-                      <tr
-                        key={index}
-                        className="hover:bg-gray-50 transition-colors"
-                      >
-                        <td className="px-6 py-4 text-sm font-medium text-gray-900">
-                          {feature.name}
-                        </td>
-                        <td className="px-6 py-4 text-sm text-gray-600">
-                          {feature.description}
-                        </td>
-                        <td className="px-6 py-4 text-center">
-                          {feature.credits === 0 ? (
-                            <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold bg-green-100 text-green-800">
-                              Free
-                            </span>
-                          ) : (
-                            <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold bg-blue-100 text-blue-800">
-                              {feature.credits}{" "}
-                              {feature.credits === 1 ? "credit" : "credits"}
-                            </span>
-                          )}
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-
         {/* Pricing Notes */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-          className="max-w-4xl mx-auto bg-white rounded-2xl p-8 shadow-lg"
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="max-w-5xl mx-auto"
         >
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {notes.map((note, index) => (
-              <p
-                key={index}
-                className="text-sm text-gray-600 flex items-start gap-2"
-              >
-                <span className="flex-shrink-0">{note.split(" ")[0]}</span>
-                <span>{note.substring(note.indexOf(" ") + 1)}</span>
-              </p>
-            ))}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {notes.map((note, index) => {
+              const iconMatch = note.match(/^([^\s]+)\s/);
+              const icon = iconMatch ? iconMatch[1] : "";
+              const text = note.replace(/^[^\s]+\s/, "");
+              return (
+                <div
+                  key={index}
+                  className="bg-white rounded-xl p-6 shadow-lg border border-gray-100 flex items-start gap-4 hover:shadow-xl transition-shadow"
+                >
+                  <span className="text-3xl flex-shrink-0">{icon}</span>
+                  <p className="text-lg font-semibold text-gray-900 leading-relaxed">
+                    {text}
+                  </p>
+                </div>
+              );
+            })}
           </div>
         </motion.div>
       </div>

@@ -28,18 +28,18 @@ export const magiqContent = {
     subheadline:
       "MagiQ AI predicts which prospects will actually buy before your first call. Get AI-generated sales strategies, decision-maker intelligence, and personalized outreach that converts.",
     primaryCTA: {
-      text: "Join the Waitlist",
-      href: "#waitlist",
+      text: "Get Started with Free Trial",
+      href: "https://app.magiqai.io/",
     },
     secondaryCTA: {
-      text: "Talk to Sales",
-      href: "mailto:support@magiqai.io",
+      text: "Book a 15-min Demo",
+      href: "https://calendly.com/nilesh-kanawade",
     },
-    trustBar: "Trusted by sales leaders across 🇮🇳 🇸🇬 🇲🇾 🇦🇪 🇺🇸",
+    trustBar: "Access Available for 🇮🇳 🇸🇬 🇲🇾 🇦🇪 🇺🇸",
     badges: [
-      { icon: "🎯", text: "89% Win Prediction Accuracy" },
+      { icon: "💳", text: "No Credit Card Required" },
       { icon: "⚡", text: "70% Time Savings" },
-      { icon: "📈", text: "5X Better Conversion" },
+      { icon: "⚙️", text: "Setup in 5 minutes" },
     ],
   },
 
@@ -64,6 +64,7 @@ export const magiqContent = {
       {
         icon: "💸",
         title: "Budget Burning, Revenue Stalling",
+        shortTag: "Low Conversion Rate",
         stats: [
           "Monthly spend: $8K-$10K on tools and leads",
           "Conversion rate: Only 2%",
@@ -74,6 +75,7 @@ export const magiqContent = {
       {
         icon: "⏰",
         title: "Your Best Reps Stuck Researching",
+        shortTag: "Manual Research",
         stats: [
           "4-6 weeks per deal spent on qualification",
           "70% of time on non-selling activities",
@@ -84,6 +86,7 @@ export const magiqContent = {
       {
         icon: "🎯",
         title: "Chasing the Wrong Deals",
+        shortTag: "Decision based on gut feeling",
         stats: ["50-60% of your team misses quota"],
         description:
           "Not because they can't sell, but because they're burning time on bad-fit prospects.",
@@ -91,6 +94,7 @@ export const magiqContent = {
       {
         icon: "📊",
         title: "Drowning in Data, Starving for Answers",
+        shortTag: "Fragmented Tools",
         stats: ["You have Apollo, ZoomInfo, LinkedIn Sales Nav, your CRM..."],
         description:
           'But you still can\'t answer: "Which deals should we prioritize TODAY?"',
@@ -115,7 +119,7 @@ export const magiqContent = {
         icon: "🧠",
         title: "Get Intelligence, Not Just Data",
         description:
-          "Complete account analysis: financials, decision-makers, buying signals, executive priorities, competitive landscape. Plus: AI-generated sales strategy with SWOT analysis and objection handling.",
+          "Walk into every call knowing exactly who has budget authority, what keeps them up at night, and which of your competitors they're considering. We build the strategy deck your AE would spend 3 hours researching.",
       },
       {
         icon: "✉️",
@@ -125,7 +129,7 @@ export const magiqContent = {
       },
     ],
     callout:
-      "This is what happens when AI actually understands sales, not just contact data.",
+      "Stop losing deals to competitors who know your prospects better than you do. See which accounts to prioritize this week.",
   },
 
   howItWorks: {
@@ -472,6 +476,7 @@ export const magiqContent = {
         credits: 500,
         price: 500,
         description: "Perfect for: Growing sales teams",
+        extraInfo: "5% extra credits",
         popular: true,
         gradient: "purple" as const,
       },
@@ -480,6 +485,7 @@ export const magiqContent = {
         credits: 1000,
         price: 1000,
         description: "Perfect for: Established teams",
+        extraInfo: "10% extra credits",
         popular: false,
         gradient: "green" as const,
       },
@@ -488,6 +494,7 @@ export const magiqContent = {
         credits: 5000,
         price: 5000,
         description: "Perfect for: Large organizations",
+        extraInfo: "10% extra credits",
         popular: false,
         gradient: "indigo" as const,
       },
@@ -545,9 +552,9 @@ export const magiqContent = {
       },
     ],
     notes: [
-      "💡 Pay only for what you use – No monthly subscriptions",
-      "🎁 Credits never expire – Use them at your own pace",
-      "🔒 Transparent pricing – 1 credit = $1, always",
+      "💡 Pay only for what you use - No monthly subscriptions",
+      "🔒 Transparent pricing - 1 credit = $1, always",
+      "🎁 Credits never expire - Use them at your own pace",
       "📞 Need custom pricing? Contact us for enterprise solutions",
     ],
   },
