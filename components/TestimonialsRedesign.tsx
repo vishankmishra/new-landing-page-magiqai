@@ -1,7 +1,9 @@
 'use client'
 
+import React from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
+import { getIcon } from '@/utils/iconMap'
 
 interface Testimonial {
   quote: string
@@ -98,12 +100,15 @@ export default function TestimonialsRedesign({ headline, subheadline, items, agg
               {/* Metrics */}
               <div className="space-y-3">
                 <p className="text-sm font-semibold text-gray-900 mb-3">Impact Metrics:</p>
-                {testimonial.metrics.map((metric, metricIndex) => (
-                  <div key={metricIndex} className="flex items-start gap-2 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg p-2">
-                    <span className="text-lg">{metric.icon}</span>
-                    <span className="text-sm text-gray-700 font-medium">{metric.text}</span>
-                  </div>
-                ))}
+                {testimonial.metrics.map((metric, metricIndex) => {
+                  const MetricIcon = getIcon(metric.icon);
+                  return (
+                    <div key={metricIndex} className="flex items-start gap-2 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg p-2">
+                      <MetricIcon className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" strokeWidth={2} />
+                      <span className="text-sm text-gray-700 font-medium">{metric.text}</span>
+                    </div>
+                  );
+                })}
               </div>
             </motion.div>
           ))}
@@ -127,12 +132,15 @@ export default function TestimonialsRedesign({ headline, subheadline, items, agg
 
           <h3 className="text-2xl md:text-3xl font-bold mb-8 relative z-10">{aggregateMetrics.title}</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
-            {aggregateMetrics.items.map((metric, index) => (
-              <div key={index} className="flex items-start gap-3 bg-white/10 rounded-xl p-4 backdrop-blur-sm">
-                <span className="text-3xl">{metric.icon}</span>
-                <span className="text-sm font-medium leading-snug">{metric.text}</span>
-              </div>
-            ))}
+            {aggregateMetrics.items.map((metric, index) => {
+              const MetricIcon = getIcon(metric.icon);
+              return (
+                <div key={index} className="flex items-start gap-3 bg-white/10 rounded-xl p-4 backdrop-blur-sm">
+                  <MetricIcon className="w-6 h-6 text-white flex-shrink-0" strokeWidth={2} />
+                  <span className="text-sm font-medium leading-snug">{metric.text}</span>
+                </div>
+              );
+            })}
           </div>
         </motion.div>
       </div>

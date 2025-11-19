@@ -1,6 +1,8 @@
 "use client";
 
+import React from "react";
 import { motion } from "framer-motion";
+import { getIcon } from "@/utils/iconMap";
 
 interface ValueProp {
   icon: string;
@@ -58,7 +60,12 @@ export default function Solution({
               className="text-center"
             >
               {/* Icon */}
-              <div className="text-5xl mb-4">{prop.icon}</div>
+              <div className="mb-4 flex justify-center">
+                {(() => {
+                  const IconComponent = getIcon(prop.icon);
+                  return <IconComponent className="w-14 h-14 text-primary-600" strokeWidth={1.5} />;
+                })()}
+              </div>
 
               {/* Title */}
               <h3 className="text-xl font-bold text-[#141414] mb-3">

@@ -1,8 +1,10 @@
 "use client";
 
+import React from "react";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import Image from "next/image";
+import { getIcon } from "@/utils/iconMap";
 
 interface Feature {
   icon: string;
@@ -137,7 +139,12 @@ export default function FeaturesRedesign({
                   {/* Text Content */}
                   <div className="p-6">
                     <div className="text-center">
-                      <div className="text-4xl mb-3">{feature.icon}</div>
+                      <div className="mb-3 flex justify-center">
+                        {(() => {
+                          const IconComponent = getIcon(feature.icon);
+                          return <IconComponent className="w-12 h-12 text-primary-600" strokeWidth={1.5} />;
+                        })()}
+                      </div>
                       <h3 className="text-xl font-bold text-gray-900 mb-2">
                         {feature.title}
                       </h3>
@@ -180,7 +187,12 @@ export default function FeaturesRedesign({
                     <div
                       className={`bg-gradient-to-br ${gradients[feature.gradient]} p-4 rounded-lg mb-4`}
                     >
-                      <div className="text-3xl mb-2">{feature.icon}</div>
+                      <div className="mb-2 flex justify-center">
+                        {(() => {
+                          const IconComponent = getIcon(feature.icon);
+                          return <IconComponent className="w-10 h-10 text-white" strokeWidth={2} />;
+                        })()}
+                      </div>
                       <h3 className="text-lg font-bold text-white">
                         {feature.title}
                       </h3>

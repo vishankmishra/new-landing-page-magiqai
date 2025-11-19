@@ -11,7 +11,7 @@ interface YouTubePlayerProps {
 export default function YouTubePlayer({
   videoId,
   className = "",
-  defaultSpeed = 2,
+  defaultSpeed = 1.5,
 }: YouTubePlayerProps) {
   const [isLoaded, setIsLoaded] = useState(false);
   const playerRef = useRef<YT.Player | null>(null);

@@ -33,11 +33,17 @@ export const magiqContent = {
       text: "Book a 15-min Demo",
       href: "https://calendly.com/nilesh-kanawade",
     },
-    trustBar: "Access Available for 🇮🇳 🇸🇬 🇲🇾 🇦🇪 🇺🇸",
+    countries: [
+      { code: "IN", name: "India" },
+      { code: "SG", name: "Singapore" },
+      { code: "MY", name: "Malaysia" },
+      { code: "AE", name: "UAE" },
+      { code: "US", name: "United States" },
+    ],
     badges: [
-      { icon: "💳", text: "No Credit Card Required" },
-      { icon: "⚡", text: "70% Time Savings" },
-      { icon: "⚙️", text: "Setup in 5 minutes" },
+      { icon: "CreditCard", text: "No Credit Card Required" },
+      { icon: "Zap", text: "70% Time Savings" },
+      { icon: "Settings", text: "Setup in 5 minutes" },
     ],
   },
 
@@ -60,7 +66,7 @@ export const magiqContent = {
       "Sound familiar? You're not alone. This is what every VP of Sales tells us.",
     painPoints: [
       {
-        icon: "💸",
+        icon: "Wallet",
         title: "Budget Burning, Revenue Stalling",
         shortTag: "Low Conversion Rate",
         stats: [
@@ -71,7 +77,7 @@ export const magiqContent = {
           "You're hemorrhaging budget on prospects who were never going to buy.",
       },
       {
-        icon: "⏰",
+        icon: "Clock",
         title: "Your Best Reps Stuck Researching",
         shortTag: "Manual Research",
         stats: [
@@ -82,7 +88,7 @@ export const magiqContent = {
           "Your closers should be selling, not searching LinkedIn for 4 hours a day.",
       },
       {
-        icon: "🎯",
+        icon: "Target",
         title: "Chasing the Wrong Deals",
         shortTag: "Decision based on gut feeling",
         stats: ["50-60% of your team misses quota"],
@@ -90,7 +96,7 @@ export const magiqContent = {
           "Not because they can't sell, but because they're burning time on bad-fit prospects.",
       },
       {
-        icon: "📊",
+        icon: "BarChart3",
         title: "Drowning in Data, Starving for Answers",
         shortTag: "Fragmented Tools",
         stats: ["You have Apollo, ZoomInfo, LinkedIn Sales Nav, your CRM..."],
@@ -108,19 +114,19 @@ export const magiqContent = {
       "MagiQ AI is the intelligence layer your sales stack is missing. We don't just give you contacts. We tell you which ones are worth pursuing and exactly how to win them.",
     valueProps: [
       {
-        icon: "🎯",
+        icon: "Target",
         title: "Know Where to Focus",
         description:
           "Our proprietary Win Probability Score analyzes 100+ signals to predict which accounts will convert. Stop guessing. Start knowing.",
       },
       {
-        icon: "🧠",
+        icon: "Brain",
         title: "Get Intelligence, Not Just Data",
         description:
           "Walk into every call knowing exactly who has budget authority, what keeps them up at night, and which of your competitors they're considering. We build the strategy deck your AE would spend 3 hours researching.",
       },
       {
-        icon: "✉️",
+        icon: "Mail",
         title: "Personalization at Scale",
         description:
           "AI writes contextual, personalized emails for every stakeholder, tailored to their role, priorities, and pain points. Your team reviews and sends. Takes seconds, not hours.",
@@ -213,7 +219,7 @@ export const magiqContent = {
       "Built by sales leaders who felt your pain. Every feature solves a real problem.",
     items: [
       {
-        icon: "🎯",
+        icon: "Target",
         title: "ICP-Based Account Discovery",
         description: "Never waste time on bad-fit prospects again.",
         media: "/videos/features/ICP-Based Account Discovery.mp4",
@@ -229,7 +235,7 @@ export const magiqContent = {
         gradient: "blue" as const,
       },
       {
-        icon: "📊",
+        icon: "BarChart3",
         title: "Deep Account Intelligence",
         description: "Get the complete picture, not just contact info.",
         media: "/videos/features/Deep Account Intelligence.mp4",
@@ -245,7 +251,7 @@ export const magiqContent = {
         gradient: "purple" as const,
       },
       {
-        icon: "🏆",
+        icon: "Trophy",
         title: "Win Probability Score",
         description: "Stop guessing. Start knowing.",
         media: "/videos/features/Win Probability Score.mp4",
@@ -262,7 +268,7 @@ export const magiqContent = {
         gradient: "green" as const,
       },
       {
-        icon: "👥",
+        icon: "Users",
         title: "Decision-Maker Intelligence",
         description: "Reach the right people with the right message.",
         media: "/videos/features/Decision-Maker Intelligence.mp4",
@@ -278,7 +284,7 @@ export const magiqContent = {
         gradient: "orange" as const,
       },
       {
-        icon: "🧠",
+        icon: "Brain",
         title: "AI-Generated Sales Strategy",
         description: "Your personal strategy consultant for every deal.",
         media: "/videos/features/AI-Generated Sales Strategy.mp4",
@@ -295,7 +301,7 @@ export const magiqContent = {
         gradient: "pink" as const,
       },
       {
-        icon: "✉️",
+        icon: "Mail",
         title: "Personalized Outreach Generation",
         description: "Stop spending hours crafting emails. Let AI do it.",
         media: "/videos/features/Personalized Outreach Generation.mp4",
@@ -325,9 +331,9 @@ export const magiqContent = {
         company: "TechSolutions India",
         companyInfo: "Enterprise SaaS • 45-person sales team",
         metrics: [
-          { icon: "📈", text: "5.5X conversion improvement" },
-          { icon: "⏱", text: "90% time savings on qualification" },
-          { icon: "💰", text: "$2.3M additional pipeline generated" },
+          { icon: "TrendingUp", text: "5.5X conversion improvement" },
+          { icon: "Timer", text: "90% time savings on qualification" },
+          { icon: "DollarSign", text: "$2.3M additional pipeline generated" },
         ],
       },
       {
@@ -338,9 +344,9 @@ export const magiqContent = {
         company: "CloudCorp Singapore",
         companyInfo: "Cloud Infrastructure • $12M ARR",
         metrics: [
-          { icon: "🎯", text: "92% forecast accuracy (up from 60%)" },
-          { icon: "⚡", text: "40% shorter sales cycles" },
-          { icon: "📊", text: "3X pipeline quality improvement" },
+          { icon: "Target", text: "92% forecast accuracy (up from 60%)" },
+          { icon: "Zap", text: "40% shorter sales cycles" },
+          { icon: "BarChart3", text: "3X pipeline quality improvement" },
         ],
       },
       {
@@ -351,9 +357,9 @@ export const magiqContent = {
         company: "DataForge",
         companyInfo: "AI Analytics • Seed Stage",
         metrics: [
-          { icon: "💵", text: "60% lower CAC" },
-          { icon: "🚀", text: "2X sales velocity" },
-          { icon: "🏆", text: "Winning against 10X larger competitors" },
+          { icon: "DollarSign", text: "60% lower CAC" },
+          { icon: "Rocket", text: "2X sales velocity" },
+          { icon: "Trophy", text: "Winning against 10X larger competitors" },
         ],
       },
     ],
@@ -361,13 +367,13 @@ export const magiqContent = {
       title: "📊 Results Across All Beta Customers:",
       items: [
         {
-          icon: "⚡",
+          icon: "Zap",
           text: "70% average time savings on non-selling activities",
         },
-        { icon: "📈", text: "5X improvement in lead-to-close conversion" },
-        { icon: "💰", text: "40-50% reduction in customer acquisition cost" },
+        { icon: "TrendingUp", text: "5X improvement in lead-to-close conversion" },
+        { icon: "DollarSign", text: "40-50% reduction in customer acquisition cost" },
         {
-          icon: "🎯",
+          icon: "Target",
           text: "89% Win Score accuracy validated across 10,000+ deals",
         },
       ],
@@ -380,7 +386,7 @@ export const magiqContent = {
       "Whether you're scaling fast or selling complex deals, MagiQ AI adapts to your motion.",
     cases: [
       {
-        icon: "🏢",
+        icon: "Building2",
         title: "Enterprise Sales Leaders",
         challenge:
           "Complex, multi-stakeholder deals with 9-12 month cycles. Need to prioritize high-value accounts and coordinate cross-functional teams.",
@@ -398,7 +404,7 @@ export const magiqContent = {
         bestFor: "VP Sales, Enterprise AEs, Strategic Account Managers",
       },
       {
-        icon: "🚀",
+        icon: "Rocket",
         title: "High-Growth Sales Teams",
         challenge:
           "Scaling fast with limited resources. Every hire is expensive. Need to maximize productivity and focus only on winnable deals.",
@@ -416,7 +422,7 @@ export const magiqContent = {
         bestFor: "Founders, Growth Leads, Early Sales Hires (teams of 5-20)",
       },
       {
-        icon: "💼",
+        icon: "Briefcase",
         title: "Consultative & Solution Sellers",
         challenge:
           "High-touch, high-value deals requiring deep customization. Need to identify active projects, demonstrate ROI, and position against incumbent vendors.",
@@ -435,7 +441,7 @@ export const magiqContent = {
           "Solution Consultants, Professional Services, Strategic Advisors",
       },
       {
-        icon: "🌏",
+        icon: "Globe",
         title: "Market Expansion Teams",
         challenge:
           "Entering India, SEA, or other new geographies without local market knowledge. Need reliable data and cultural context.",
@@ -550,10 +556,10 @@ export const magiqContent = {
       },
     ],
     notes: [
-      "💡 Pay only for what you use - No monthly subscriptions",
-      "🔒 Transparent pricing - 1 credit = $1, always",
-      "🎁 Credits never expire - Use them at your own pace",
-      "📞 Need custom pricing? Contact us for enterprise solutions",
+      { icon: "Lightbulb", text: "Pay only for what you use - No monthly subscriptions" },
+      { icon: "Lock", text: "Transparent pricing - 1 credit = $1, always" },
+      { icon: "Gift", text: "Credits never expire - Use them at your own pace" },
+      { icon: "Phone", text: "Need custom pricing? Contact us for enterprise solutions" },
     ],
   },
 

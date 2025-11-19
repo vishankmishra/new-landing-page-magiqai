@@ -1,6 +1,8 @@
 'use client'
 
+import React from 'react'
 import { motion } from 'framer-motion'
+import { getIcon } from '@/utils/iconMap'
 
 interface PainPoint {
   icon: string
@@ -64,7 +66,12 @@ export default function Problem({ headline, subheadline, painPoints, transition 
               )}
 
               {/* Icon */}
-              <div className="text-6xl mb-4">{point.icon}</div>
+              <div className="mb-4">
+                {(() => {
+                  const IconComponent = getIcon(point.icon);
+                  return <IconComponent className="w-16 h-16 text-primary-600" strokeWidth={1.5} />;
+                })()}
+              </div>
 
               {/* Title */}
               <h3 className="text-xl font-bold text-[#141414] mb-4">

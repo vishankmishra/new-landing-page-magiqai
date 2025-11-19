@@ -1,7 +1,9 @@
 "use client";
 
+import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
+import { getIcon } from "@/utils/iconMap";
 
 interface UseCase {
   icon: string;
@@ -69,7 +71,10 @@ export default function UseCases({
               {/* Icon & Title - Always Visible */}
               <div className="flex items-center justify-between gap-3 p-8">
                 <div className="flex items-center gap-3">
-                  <span className="text-4xl">{useCase.icon}</span>
+                  {(() => {
+                    const IconComponent = getIcon(useCase.icon);
+                    return <IconComponent className="w-10 h-10 text-primary-600 flex-shrink-0" strokeWidth={1.5} />;
+                  })()}
                   <h3 className="text-2xl font-bold text-gray-900">
                     {useCase.title}
                   </h3>

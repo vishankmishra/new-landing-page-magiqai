@@ -1,9 +1,12 @@
 "use client";
 
+import React from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
 import YouTubePlayer from "./YouTubePlayer";
+import { getIcon } from "@/utils/iconMap";
+import CountryFlags from "./CountryFlags";
 
 interface HeroProps {
   eyebrow: string;
@@ -17,7 +20,11 @@ interface HeroProps {
     text: string;
     href: string;
   };
-  trustBar: string;
+  trustBar?: string;
+  countries?: Array<{
+    code: string;
+    name: string;
+  }>;
   badges: Array<{
     icon: string;
     text: string;
@@ -31,6 +38,7 @@ export default function HeroRedesign({
   primaryCTA,
   secondaryCTA,
   trustBar,
+  countries,
   badges,
 }: HeroProps) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -128,27 +136,34 @@ export default function HeroRedesign({
               transition={{ duration: 0.6, delay: 0.3 }}
               className="flex flex-wrap gap-6 justify-center items-center mb-12"
             >
-              {badges.map((badge, index) => (
-                <div key={index} className="flex items-center gap-2">
-                  <span className="text-2xl">{badge.icon}</span>
-                  <span className="text-base font-medium text-gray-700">
-                    {badge.text}
-                  </span>
-                </div>
-              ))}
+              {badges.map((badge, index) => {
+                const IconComponent = getIcon(badge.icon);
+                return (
+                  <div key={index} className="flex items-center gap-2">
+                    <IconComponent className="w-5 h-5 text-primary-600" strokeWidth={2} />
+                    <span className="text-base font-medium text-gray-700">
+                      {badge.text}
+                    </span>
+                  </div>
+                );
+              })}
             </motion.div>
           )}
 
-          {/* Trust Bar Text */}
-          {trustBar && (
-            <motion.p
+          {/* Trust Bar Text with Country Flags */}
+          {(trustBar || countries) && (
+            <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.3 }}
               className="text-sm text-gray-500 mb-12"
             >
-              {trustBar}
-            </motion.p>
+              {countries && countries.length > 0 ? (
+                <CountryFlags countries={countries} />
+              ) : trustBar ? (
+                <p>{trustBar}</p>
+              ) : null}
+            </motion.div>
           )}
 
           {/* 4. The 3D Video Container - Must be at the bottom */}

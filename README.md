@@ -33,16 +33,24 @@ npm start
 │   ├── layout.tsx         # Root layout with metadata
 │   └── globals.css        # Global styles & Tailwind utilities
 ├── components/
-│   ├── Navigation.tsx     # Navbar with mobile hamburger menu
-│   ├── Hero.tsx           # Hero section with CTAs
-│   ├── Features.tsx       # Feature grid with icons
-│   ├── Screenshots.tsx    # Product screenshots/cards
-│   ├── Testimonials.tsx   # Customer testimonials
-│   ├── FAQ.tsx            # Accordion FAQ section
-│   ├── PricingCTA.tsx     # Pricing CTA strip
-│   └── Footer.tsx         # Footer with links
+│   ├── Navigation.tsx         # Navbar with mobile hamburger menu
+│   ├── HeroRedesign.tsx       # Hero section with CTAs and country flags
+│   ├── Problem.tsx            # Problem/pain points section
+│   ├── Solution.tsx           # Solution/value props section
+│   ├── HowItWorks.tsx         # How it works steps
+│   ├── FeaturesRedesign.tsx   # Feature grid with flip cards
+│   ├── UseCases.tsx           # Use cases section
+│   ├── PricingRedesign.tsx    # Pricing section
+│   ├── FAQMagiq.tsx           # FAQ accordion section
+│   ├── TestimonialsRedesign.tsx # Testimonials (currently commented out)
+│   ├── StatsShowcase.tsx      # Stats showcase (currently commented out)
+│   ├── Footer.tsx             # Footer with links
+│   ├── CountryFlags.tsx       # Country flag icons component
+│   └── YouTubePlayer.tsx      # YouTube video player component
 ├── data/
-│   └── content.ts         # Content schema and data
+│   └── content-magiq.ts       # Content schema and data
+├── utils/
+│   └── iconMap.tsx            # Icon mapping utility (Lucide icons)
 ├── public/
 │   └── images/            # Image assets (logos, screenshots)
 └── tailwind.config.ts     # Tailwind theme customization
@@ -52,10 +60,10 @@ npm start
 
 ### Content
 
-Edit `data/content.ts` to update all text content, links, and metadata:
+Edit `data/content-magiq.ts` to update all text content, links, and metadata:
 
 ```typescript
-export const siteContent: ContentData = {
+export const magiqContent = {
   meta: {
     title: "Your Title",
     description: "Your Description"
@@ -97,18 +105,18 @@ import { Inter, YourFont } from 'next/font/google'
 
 ### Images & Logos
 
-1. Place your logo in `public/images/logo.png`
+1. Place your logo in `public/icons/icon-logo-full.svg`
 2. Update `components/Navigation.tsx` and `components/Footer.tsx` to use your logo
-3. Add product screenshots to `public/images/` folder
-4. Update the `image` paths in `data/content.ts`
+3. Add feature videos to `public/videos/features/` folder
+4. Update the `media` paths in `data/content-magiq.ts`
 
 Example:
 ```typescript
-screenshots: {
+features: {
   items: [
     {
-      image: "/images/dashboard-screenshot.png",
-      title: "Dashboard",
+      media: "/videos/features/feature-name.mp4",
+      title: "Feature Name",
       // ...
     }
   ]
@@ -143,13 +151,15 @@ screenshots: {
 ## 📝 Sections Included
 
 1. **Navigation**: Fixed navbar with mobile menu
-2. **Hero**: Headline, subheadline, and primary/secondary CTAs
-3. **Features**: 6-item feature grid with icons
-4. **Screenshots**: Product showcase with category tags
-5. **Testimonials**: Customer quotes with author info
-6. **FAQ**: Accordion-style frequently asked questions
-7. **Pricing CTA**: Call-to-action strip with trust indicators
-8. **Footer**: Multi-column links and social media icons
+2. **Hero**: Headline, subheadline, CTAs, and country flags
+3. **Problem**: Pain points section with icons
+4. **Solution**: Value propositions section
+5. **How It Works**: Step-by-step process
+6. **Features**: 6-item feature grid with flip cards and videos
+7. **Use Cases**: Use case cards with expandable details
+8. **Pricing**: Credit pack pricing with feature costs
+9. **FAQ**: Accordion-style frequently asked questions
+10. **Footer**: Multi-column links
 
 ## 🛠️ Technology Stack
 
@@ -164,12 +174,11 @@ screenshots: {
 Before going to production, update these items:
 
 - [ ] Replace logo placeholder in `Navigation.tsx` and `Footer.tsx`
-- [ ] Add real screenshot images to `public/images/`
-- [ ] Update content in `data/content.ts` with actual copy
+- [ ] Add feature videos to `public/videos/features/`
+- [ ] Update content in `data/content-magiq.ts` with actual copy
 - [ ] Add favicon and other meta images
-- [ ] Update social media links in footer
-- [ ] Configure proper image domains in `next.config.js`
-- [ ] Add avatar images for testimonials (optional)
+- [ ] Download country flag SVGs to `public/flags/` (optional - CDN fallback works)
+- [ ] Configure proper image domains in `next.config.js` if using external images
 - [ ] Set up environment variables if needed
 
 ## 🎨 Design Notes

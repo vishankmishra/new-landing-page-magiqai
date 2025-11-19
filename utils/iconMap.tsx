@@ -1,0 +1,55 @@
+import {
+  CreditCard,
+  Zap,
+  Settings,
+  Wallet,
+  Clock,
+  Target,
+  BarChart3,
+  Brain,
+  Mail,
+  Trophy,
+  Users,
+  TrendingUp,
+  Timer,
+  DollarSign,
+  Rocket,
+  Building2,
+  Briefcase,
+  Globe,
+  Lightbulb,
+  Lock,
+  Gift,
+  Phone,
+  type LucideIcon,
+} from "lucide-react";
+
+export const iconMap: Record<string, LucideIcon> = {
+  CreditCard,
+  Zap,
+  Settings,
+  Wallet,
+  Clock,
+  Target,
+  BarChart3,
+  Brain,
+  Mail,
+  Trophy,
+  Users,
+  TrendingUp,
+  Timer,
+  DollarSign,
+  Rocket,
+  Building2,
+  Briefcase,
+  Globe,
+  Lightbulb,
+  Lock,
+  Gift,
+  Phone,
+};
+
+export function getIcon(iconName: string): LucideIcon {
+  return iconMap[iconName] || Target; // Default to Target if icon not found
+}
+

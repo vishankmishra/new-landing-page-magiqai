@@ -1,7 +1,9 @@
 "use client";
 
+import React from "react";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { getIcon } from "@/utils/iconMap";
 
 interface CreditPack {
   name: string;
@@ -24,7 +26,7 @@ interface PricingProps {
   subheadline: string;
   creditPacks: CreditPack[];
   featureCosts?: FeatureCost[];
-  notes: Array<string>;
+  notes: Array<{ icon: string; text: string }>;
 }
 
 const cardStyles = {
@@ -187,17 +189,15 @@ export default function PricingRedesign({
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {notes.map((note, index) => {
-              const iconMatch = note.match(/^([^\s]+)\s/);
-              const icon = iconMatch ? iconMatch[1] : "";
-              const text = note.replace(/^[^\s]+\s/, "");
+              const NoteIcon = getIcon(note.icon);
               return (
                 <div
                   key={index}
                   className="bg-white rounded-xl p-6 shadow-lg border border-gray-100 flex items-start gap-4 hover:shadow-xl transition-shadow"
                 >
-                  <span className="text-3xl flex-shrink-0">{icon}</span>
+                  <NoteIcon className="w-6 h-6 text-primary-600 flex-shrink-0" strokeWidth={2} />
                   <p className="text-lg font-semibold text-gray-900 leading-relaxed">
-                    {text}
+                    {note.text}
                   </p>
                 </div>
               );
