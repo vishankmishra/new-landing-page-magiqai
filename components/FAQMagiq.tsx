@@ -17,7 +17,7 @@ export default function FAQMagiq({ headline, items }: FAQProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="py-16 sm:py-24 lg:py-32 bg-white">
+    <section className="py-20 bg-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.h2
@@ -25,7 +25,7 @@ export default function FAQMagiq({ headline, items }: FAQProps) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight text-center mb-12"
+          className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#141414] tracking-tight text-center mb-12"
         >
           {headline}
         </motion.h2>

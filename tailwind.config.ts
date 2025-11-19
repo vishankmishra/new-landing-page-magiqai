@@ -16,10 +16,10 @@ const config: Config = {
           300: "#93c5fd",
           400: "#60a5fa",
           500: "#3b82f6",
-          600: "#2563eb",
-          700: "#1d4ed8",
-          800: "#1e40af",
-          900: "#1e3a8a",
+          600: "#0071eb", // Perspective.co blue rgb(0, 113, 235)
+          700: "#0056b8",
+          800: "#004494",
+          900: "#003370",
         },
         accent: {
           50: "#faf5ff",
@@ -37,6 +37,12 @@ const config: Config = {
           500: "#10b981",
           600: "#059669",
         },
+        // Perspective.co specific colors
+        perspective: {
+          blue: "#0071eb", // rgb(0, 113, 235)
+          text: "#141414", // rgb(20, 20, 20)
+          bg: "#ffffff", // rgb(255, 255, 255)
+        },
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
@@ -45,8 +51,39 @@ const config: Config = {
         "gradient-purple": "linear-gradient(135deg, #a855f7 0%, #7e22ce 100%)",
       },
       fontFamily: {
-        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
-        display: ["var(--font-display)", "system-ui", "sans-serif"],
+        sans: [
+          '"Inter F"',
+          "Inter",
+          "ui-sans-serif",
+          "system-ui",
+          "-apple-system",
+          "BlinkMacSystemFont",
+          '"Segoe UI"',
+          "Roboto",
+          '"Helvetica Neue"',
+          "Arial",
+          "sans-serif",
+        ],
+        display: [
+          '"Inter F"',
+          "Inter",
+          "ui-sans-serif",
+          "system-ui",
+          "-apple-system",
+          "BlinkMacSystemFont",
+          '"Segoe UI"',
+          "Roboto",
+          '"Helvetica Neue"',
+          "Arial",
+          "sans-serif",
+        ],
+      },
+      fontSize: {
+        // Perspective.co typography
+        hero: [
+          "72px",
+          { lineHeight: "79.2px", letterSpacing: "-0.72px", fontWeight: "700" },
+        ],
       },
       animation: {
         "fade-in": "fade-in 0.6s ease-out",
@@ -54,6 +91,8 @@ const config: Config = {
         "slide-down": "slide-down 0.3s ease-out",
         float: "float 6s ease-in-out infinite",
         "pulse-slow": "pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+        "spin-slow": "spin 8s linear infinite",
+        "spin-slower": "spin 15s linear infinite",
       },
       keyframes: {
         "fade-in": {

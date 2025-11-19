@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 interface CreditPack {
   name: string;
@@ -40,11 +41,15 @@ export default function PricingRedesign({
   featureCosts,
   notes,
 }: PricingProps) {
+  // Track selected pack index - initialize to popular one if exists
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(
+    creditPacks.findIndex((pack) => pack.popular) !== -1
+      ? creditPacks.findIndex((pack) => pack.popular)
+      : null
+  );
+
   return (
-    <section
-      id="pricing"
-      className="py-16 sm:py-24 lg:py-32 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden"
-    >
+    <section id="pricing" className="py-20 bg-white relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute top-20 right-10 w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float" />
       <div
@@ -60,7 +65,7 @@ export default function PricingRedesign({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight mb-4"
+            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#141414] tracking-tight mb-4"
           >
             {headline}
           </motion.h2>
@@ -77,78 +82,99 @@ export default function PricingRedesign({
 
         {/* Credit Pack Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-          {creditPacks.map((pack, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`relative bg-white rounded-3xl overflow-hidden ${
-                pack.popular
-                  ? "shadow-2xl ring-4 ring-primary-500 scale-105"
-                  : "shadow-lg"
-              } transition-all duration-300 hover:shadow-2xl hover:-translate-y-2`}
-            >
-              {/* Popular Badge */}
-              {pack.popular && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-20">
-                  <span className="inline-block px-4 py-1 bg-gradient-to-r from-primary-600 to-accent-600 text-white text-xs font-semibold rounded-full shadow-lg">
-                    Most Popular
-                  </span>
-                </div>
-              )}
+          {creditPacks.map((pack, index) => {
+            const isSelected = selectedIndex === index;
+            const isPopular = pack.popular;
+            const isHighlighted = isSelected || isPopular;
 
-              <div className="p-6">
-                {/* Pack Name */}
-                <h3 className="text-xl font-bold text-gray-900 mb-2 text-center">
-                  {pack.name}
-                </h3>
-
-                {/* Credits Display */}
-                <div className="text-center mb-4">
-                  <div className="text-4xl font-bold text-gray-900">
-                    {pack.credits.toLocaleString()}
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                onClick={() => setSelectedIndex(index)}
+                className={`relative bg-white rounded-3xl overflow-hidden cursor-pointer ${
+                  isHighlighted
+                    ? "shadow-2xl ring-4 ring-primary-500 scale-105"
+                    : "shadow-lg"
+                } transition-all duration-300 hover:shadow-2xl hover:-translate-y-2`}
+              >
+                {/* Popular Badge */}
+                {isPopular && (
+                  <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 z-20">
+                    <span className="inline-block px-4 py-1 bg-gradient-to-r from-primary-600 to-accent-600 text-white text-xs font-semibold rounded-full shadow-lg">
+                      Most Popular
+                    </span>
                   </div>
-                  <div className="text-sm text-gray-600">Credits</div>
-                </div>
-
-                {/* Price Display */}
-                <div className="text-center mb-4">
-                  <div className="text-2xl font-bold text-gray-900">
-                    ${pack.price.toLocaleString()}
-                  </div>
-                  <div className="text-xs text-gray-500">1 credit = $1</div>
-                </div>
-
-                {/* Description */}
-                <p className="text-sm text-gray-600 text-center mb-2">
-                  {pack.description}
-                </p>
-
-                {/* Extra Info */}
-                {pack.extraInfo && (
-                  <p className="text-sm font-semibold text-primary-600 text-center mb-6">
-                    {pack.extraInfo}
-                  </p>
                 )}
 
-                {!pack.extraInfo && <div className="mb-6" />}
+                <div className="p-6">
+                  {/* Pack Name */}
+                  <h3 className="text-xl font-bold text-gray-900 mb-2 text-center">
+                    {pack.name}
+                  </h3>
 
-                {/* CTA */}
-                <a
-                  href="#waitlist"
-                  className={`block w-full text-center px-6 py-3 rounded-xl font-semibold transition-all ${
-                    pack.popular
-                      ? "bg-gradient-to-r from-primary-600 to-accent-600 text-white hover:from-primary-700 hover:to-accent-700 shadow-lg hover:shadow-xl hover:scale-105"
-                      : "bg-gray-100 text-gray-900 hover:bg-gray-200"
-                  }`}
-                >
-                  Get Started →
-                </a>
-              </div>
-            </motion.div>
-          ))}
+                  {/* Credits Display - Calculate total with extra credits */}
+                  {(() => {
+                    let totalCredits = pack.credits;
+                    if (pack.extraInfo) {
+                      const extraMatch = pack.extraInfo.match(/(\d+)%/);
+                      if (extraMatch) {
+                        const extraPercent = parseInt(extraMatch[1]);
+                        totalCredits = Math.round(
+                          pack.credits * (1 + extraPercent / 100)
+                        );
+                      }
+                    }
+                    return (
+                      <div className="text-center mb-4">
+                        <div className="text-4xl font-bold text-gray-900">
+                          {totalCredits.toLocaleString()}
+                        </div>
+                        <div className="text-sm text-gray-600">Credits</div>
+                      </div>
+                    );
+                  })()}
+
+                  {/* Price Display */}
+                  <div className="text-center mb-4">
+                    <div className="text-2xl font-bold text-gray-900">
+                      ${pack.price.toLocaleString()}
+                    </div>
+                  </div>
+
+                  {/* Description */}
+                  <p className="text-sm text-gray-600 text-center mb-2">
+                    {pack.description}
+                  </p>
+
+                  {/* Extra Info */}
+                  {pack.extraInfo && (
+                    <p className="text-sm font-semibold text-primary-600 text-center mb-6">
+                      {pack.extraInfo}
+                    </p>
+                  )}
+
+                  {!pack.extraInfo && <div className="mb-6" />}
+
+                  {/* CTA */}
+                  <a
+                    href="https://app.magiqai.io/payment"
+                    onClick={(e) => e.stopPropagation()}
+                    className={`block w-full text-center px-6 py-3 rounded-xl font-semibold transition-all ${
+                      isHighlighted
+                        ? "bg-gradient-to-r from-primary-600 to-accent-600 text-white hover:from-primary-700 hover:to-accent-700 shadow-lg hover:shadow-xl hover:scale-105"
+                        : "bg-gray-100 text-gray-900 hover:bg-gray-200"
+                    }`}
+                  >
+                    Get Started →
+                  </a>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
 
         {/* Pricing Notes */}

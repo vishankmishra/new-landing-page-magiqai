@@ -19,7 +19,7 @@ interface ProblemProps {
 
 export default function Problem({ headline, subheadline, painPoints, transition }: ProblemProps) {
   return (
-    <section className="py-16 sm:py-24 lg:py-32 bg-gray-50">
+    <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center mb-16">
@@ -28,7 +28,7 @@ export default function Problem({ headline, subheadline, painPoints, transition 
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight mb-4"
+            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#141414] tracking-tight mb-4"
           >
             {headline}
           </motion.h2>
@@ -37,14 +37,14 @@ export default function Problem({ headline, subheadline, painPoints, transition 
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-lg sm:text-xl text-gray-600"
+            className="text-xl text-gray-600"
           >
             {subheadline}
           </motion.p>
         </div>
 
         {/* Pain Points Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
           {painPoints.map((point, index) => (
             <motion.div
               key={index}
@@ -52,7 +52,7 @@ export default function Problem({ headline, subheadline, painPoints, transition 
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-gray-50 rounded-2xl p-6 border border-gray-200"
+              className="bg-white rounded-2xl p-6 border border-gray-200 hover:shadow-lg transition-shadow"
             >
               {/* Short Tag Badge */}
               {point.shortTag && (
@@ -64,17 +64,17 @@ export default function Problem({ headline, subheadline, painPoints, transition 
               )}
 
               {/* Icon */}
-              <div className="text-7xl mb-4">{point.icon}</div>
+              <div className="text-6xl mb-4">{point.icon}</div>
 
               {/* Title */}
-              <h3 className="text-2xl font-extrabold text-gray-900 mb-4">
+              <h3 className="text-xl font-bold text-[#141414] mb-4">
                 {point.title}
               </h3>
 
               {/* Stats */}
               <div className="space-y-2 mb-4">
                 {point.stats.map((stat, statIndex) => (
-                  <p key={statIndex} className="text-sm font-medium text-gray-900">
+                  <p key={statIndex} className="text-sm font-medium text-[#141414]">
                     {stat}
                   </p>
                 ))}
@@ -96,7 +96,7 @@ export default function Problem({ headline, subheadline, painPoints, transition 
           transition={{ duration: 0.5, delay: 0.5 }}
           className="text-center"
         >
-          <p className="text-xl font-semibold text-gray-900">
+          <p className="text-xl font-semibold text-[#141414]">
             {transition}
           </p>
         </motion.div>
@@ -104,4 +104,3 @@ export default function Problem({ headline, subheadline, painPoints, transition 
     </section>
   )
 }
-

@@ -13,8 +13,6 @@ export const magiqContent = {
       { label: "How It Works", href: "#how-it-works" },
       { label: "Features", href: "#features" },
       { label: "Pricing", href: "#pricing" },
-      { label: "Resources", href: "#resources" },
-      { label: "About", href: "#about" },
     ],
     ctaButton: {
       text: "Join Waitlist",

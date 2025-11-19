@@ -22,7 +22,7 @@ export default function Solution({
   callout,
 }: SolutionProps) {
   return (
-    <section className="py-16 sm:py-24 lg:py-32 bg-white">
+    <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center mb-16">
@@ -31,7 +31,7 @@ export default function Solution({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight mb-4"
+            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#141414] tracking-tight mb-4"
           >
             {headline}
           </motion.h2>
@@ -40,7 +40,7 @@ export default function Solution({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-lg sm:text-xl text-gray-600"
+            className="text-xl text-gray-600"
           >
             {subheadline}
           </motion.p>
@@ -61,7 +61,7 @@ export default function Solution({
               <div className="text-5xl mb-4">{prop.icon}</div>
 
               {/* Title */}
-              <h3 className="text-xl font-bold text-gray-900 mb-3">
+              <h3 className="text-xl font-bold text-[#141414] mb-3">
                 {prop.title}
               </h3>
 
@@ -81,7 +81,7 @@ export default function Solution({
           transition={{ duration: 0.5, delay: 0.4 }}
           className="text-center"
         >
-          <p className="text-2xl font-bold text-purple-600 max-w-3xl mx-auto">
+          <p className="text-xl font-semibold text-[#141414] max-w-3xl mx-auto">
             {callout}
           </p>
         </motion.div>

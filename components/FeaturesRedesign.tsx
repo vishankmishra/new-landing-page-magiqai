@@ -42,7 +42,7 @@ export default function FeaturesRedesign({
   };
 
   return (
-    <section className="py-16 sm:py-24 lg:py-32 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
+    <section className="py-20 bg-white relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-30">
         <div
@@ -63,7 +63,7 @@ export default function FeaturesRedesign({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight mb-4"
+            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#141414] tracking-tight mb-4"
           >
             {headline}
           </motion.h2>
@@ -72,7 +72,7 @@ export default function FeaturesRedesign({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-lg sm:text-xl text-gray-600"
+            className="text-xl text-gray-600"
           >
             {subheadline}
           </motion.p>

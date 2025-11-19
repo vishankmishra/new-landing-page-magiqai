@@ -19,12 +19,13 @@ export default function SocialProof({ title, logos }: SocialProofProps) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center text-sm font-medium text-gray-500 mb-8"
+          className="text-center text-base font-medium text-gray-600 mb-8"
         >
           {title}
         </motion.p>
         
-        <div className="flex items-center justify-center gap-8 sm:gap-12 flex-wrap">
+        {/* Logo Grid - Matching Perspective.co style */}
+        <div className="flex items-center justify-center gap-8 sm:gap-12 flex-wrap opacity-60 grayscale hover:grayscale-0 transition-all">
           {logos.map((logo, index) => (
             <motion.div
               key={index}
@@ -45,4 +46,3 @@ export default function SocialProof({ title, logos }: SocialProofProps) {
     </section>
   )
 }
-

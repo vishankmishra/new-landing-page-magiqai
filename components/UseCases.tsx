@@ -39,7 +39,7 @@ export default function UseCases({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight mb-4"
+            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#141414] tracking-tight mb-4"
           >
             {headline}
           </motion.h2>
@@ -48,7 +48,7 @@ export default function UseCases({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-lg sm:text-xl text-gray-600"
+            className="text-xl text-gray-600"
           >
             {subheadline}
           </motion.p>

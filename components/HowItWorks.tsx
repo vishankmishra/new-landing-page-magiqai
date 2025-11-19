@@ -26,7 +26,7 @@ export default function HowItWorks({
   timeSaving,
 }: HowItWorksProps) {
   return (
-    <section className="py-16 sm:py-24 lg:py-32 bg-gray-50">
+    <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center mb-16">
@@ -35,7 +35,7 @@ export default function HowItWorks({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight mb-4"
+            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#141414] tracking-tight mb-4"
           >
             {headline}
           </motion.h2>
@@ -44,7 +44,7 @@ export default function HowItWorks({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-lg sm:text-xl text-gray-600"
+            className="text-xl text-gray-600"
           >
             {subheadline}
           </motion.p>
