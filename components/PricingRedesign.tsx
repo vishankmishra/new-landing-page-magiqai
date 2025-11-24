@@ -51,11 +51,11 @@ export default function PricingRedesign({
   );
 
   return (
-    <section id="pricing" className="py-20 relative overflow-hidden">
+    <section id="pricing" className="py-24 bg-gradient-to-b from-white to-neutral-50/50 relative overflow-hidden">
       {/* Background Elements */}
-      <div className="absolute top-20 right-10 w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float" />
+      <div className="absolute top-20 right-10 w-96 h-96 bg-primary-200/30 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float" />
       <div
-        className="absolute bottom-20 left-10 w-96 h-96 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float"
+        className="absolute bottom-20 left-10 w-96 h-96 bg-accent-200/30 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float"
         style={{ animationDelay: "2s" }}
       />
 
@@ -67,7 +67,7 @@ export default function PricingRedesign({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#141414] tracking-tight mb-4"
+            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-neutral-900 tracking-tight mb-4"
           >
             {headline}
           </motion.h2>
@@ -76,14 +76,14 @@ export default function PricingRedesign({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-lg sm:text-xl text-gray-600"
+            className="text-lg sm:text-xl text-neutral-600"
           >
             {subheadline}
           </motion.p>
         </div>
 
         {/* Credit Pack Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {creditPacks.map((pack, index) => {
             const isSelected = selectedIndex === index;
             const isPopular = pack.popular;
@@ -165,10 +165,10 @@ export default function PricingRedesign({
                   <a
                     href="https://app.magiqai.io/payment"
                     onClick={(e) => e.stopPropagation()}
-                    className={`block w-full text-center px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
+                    className={`block w-full text-center px-6 py-3 rounded-xl font-semibold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 ${
                       isHighlighted
-                        ? "bg-gradient-to-r from-primary-600 to-accent-600 text-white hover:from-primary-700 hover:to-accent-700 shadow-lg hover:shadow-xl hover:scale-105"
-                        : "bg-neutral-100 text-neutral-900 hover:bg-neutral-200"
+                        ? "bg-gradient-to-r from-primary-600 to-accent-600 text-white hover:from-primary-700 hover:to-accent-700 shadow-lg hover:shadow-xl hover:shadow-primary-500/30 hover:scale-105 focus:ring-primary-500"
+                        : "bg-neutral-100 text-neutral-900 hover:bg-neutral-200 focus:ring-neutral-400"
                     }`}
                   >
                     Get Started →

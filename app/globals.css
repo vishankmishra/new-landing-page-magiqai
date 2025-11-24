@@ -26,18 +26,18 @@
 
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 5rem; /* Account for fixed navbar */
   }
 }
 
 @layer components {
   /* Glassmorphism Panel */
   .glass-panel {
-    @apply bg-gradient-glass backdrop-blur-md rounded-2xl border border-white/50 shadow-lg shadow-purple-500/5;
-    background-color: rgba(255, 255, 255, 0.9);
+    @apply bg-white/90 backdrop-blur-sm rounded-2xl border border-neutral-200/80 shadow-lg shadow-neutral-500/5;
   }
 
   .glass-panel-hover {
-    @apply glass-panel transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/10 hover:-translate-y-1 hover:scale-[1.01];
+    @apply glass-panel transition-all duration-300 hover:shadow-xl hover:shadow-neutral-500/10 hover:-translate-y-1 hover:scale-[1.01] hover:border-neutral-300/80;
   }
 
   /* Button Styles - Updated with new colors */

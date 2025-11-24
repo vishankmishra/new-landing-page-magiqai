@@ -32,7 +32,7 @@ export default function UseCases({
   };
 
   return (
-    <section className="py-16 sm:py-24 lg:py-32">
+    <section className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center mb-16">
@@ -57,7 +57,7 @@ export default function UseCases({
         </div>
 
         {/* Use Cases Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 items-start">
           {cases.map((useCase, index) => (
             <motion.div
               key={index}
@@ -65,8 +65,16 @@ export default function UseCases({
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="glass-panel glass-panel-hover overflow-hidden cursor-pointer transition-all duration-300"
+              className="glass-panel glass-panel-hover overflow-hidden cursor-pointer transition-all duration-300 focus-within:ring-2 focus-within:ring-primary-500 focus-within:ring-offset-2"
               onClick={() => toggleCase(index)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  toggleCase(index);
+                }
+              }}
             >
               {/* Icon & Title - Always Visible */}
               <div className="flex items-center justify-between gap-3 p-8">

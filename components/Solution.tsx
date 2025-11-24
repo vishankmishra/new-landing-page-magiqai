@@ -24,7 +24,7 @@ export default function Solution({
   callout,
 }: SolutionProps) {
   return (
-    <section className="py-20 bg-white">
+    <section className="py-24 bg-gradient-to-b from-white to-neutral-50/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center mb-16">
@@ -33,7 +33,7 @@ export default function Solution({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#141414] tracking-tight mb-4"
+            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-neutral-900 tracking-tight mb-4"
           >
             {headline}
           </motion.h2>
@@ -42,14 +42,14 @@ export default function Solution({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-xl text-gray-600"
+            className="text-xl text-neutral-600"
           >
             {subheadline}
           </motion.p>
         </div>
 
         {/* Value Props Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-16">
           {valueProps.map((prop, index) => (
             <motion.div
               key={index}
@@ -68,12 +68,12 @@ export default function Solution({
               </div>
 
               {/* Title */}
-              <h3 className="text-xl font-bold text-[#141414] mb-3">
+              <h3 className="text-xl font-bold text-neutral-900 mb-3">
                 {prop.title}
               </h3>
 
               {/* Description */}
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-neutral-600 leading-relaxed">
                 {prop.description}
               </p>
             </motion.div>
@@ -88,7 +88,7 @@ export default function Solution({
           transition={{ duration: 0.5, delay: 0.4 }}
           className="text-center"
         >
-          <p className="text-xl font-semibold text-[#141414] max-w-3xl mx-auto">
+          <p className="text-xl font-semibold text-neutral-900 max-w-3xl mx-auto">
             {callout}
           </p>
         </motion.div>

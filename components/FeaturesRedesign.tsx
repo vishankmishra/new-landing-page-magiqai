@@ -44,14 +44,14 @@ export default function FeaturesRedesign({
   };
 
   return (
-    <section className="py-20 relative overflow-hidden">
+    <section className="py-24 bg-white relative overflow-hidden">
       {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-30">
+      <div className="absolute inset-0 opacity-20">
         <div
           className="absolute inset-0"
           style={{
             backgroundImage:
-              "radial-gradient(circle at 2px 2px, rgba(147, 197, 253, 0.15) 1px, transparent 0)",
+              "radial-gradient(circle at 2px 2px, rgba(119, 61, 244, 0.08) 1px, transparent 0)",
             backgroundSize: "32px 32px",
           }}
         />
@@ -65,7 +65,7 @@ export default function FeaturesRedesign({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#141414] tracking-tight mb-4"
+            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-neutral-900 tracking-tight mb-4"
           >
             {headline}
           </motion.h2>
@@ -74,14 +74,14 @@ export default function FeaturesRedesign({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-xl text-gray-600"
+            className="text-xl text-neutral-600"
           >
             {subheadline}
           </motion.p>
         </div>
 
         {/* Features Grid - 2 columns for horizontal videos */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
           {items.map((feature, index) => (
             <motion.div
               key={index}
@@ -153,7 +153,7 @@ export default function FeaturesRedesign({
                       </p>
                       <button
                         onClick={() => handleKnowMore(index)}
-                        className={`inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold text-white bg-gradient-to-r ${gradients[feature.gradient]} hover:opacity-90 transition-all shadow-md hover:shadow-lg`}
+                        className={`inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold text-white bg-gradient-to-r ${gradients[feature.gradient]} hover:opacity-90 transition-all shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white/50`}
                       >
                         Know More
                         <svg
@@ -243,7 +243,7 @@ export default function FeaturesRedesign({
                     {/* Back Button */}
                     <button
                       onClick={() => handleKnowMore(index)}
-                      className="mt-4 px-4 py-2 text-sm font-medium text-neutral-700 hover:text-neutral-900 transition-colors"
+                      className="mt-4 px-4 py-2 text-sm font-medium text-neutral-700 hover:text-neutral-900 transition-colors focus:outline-none focus:ring-2 focus:ring-neutral-400 focus:ring-offset-2 rounded-lg"
                     >
                       ← Back
                     </button>

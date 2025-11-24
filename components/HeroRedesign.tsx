@@ -118,7 +118,7 @@ export default function HeroRedesign({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-[72px] font-bold text-neutral-900 mb-6 tracking-[-0.72px] leading-[79.2px] max-w-5xl relative z-30"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-[72px] font-bold text-neutral-900 mb-6 tracking-tight lg:tracking-[-0.72px] leading-tight lg:leading-[79.2px] max-w-5xl relative z-30 px-4 sm:px-0"
           >
             {headline.split("\n").map((line, i) => (
               <span key={i} className="block">
@@ -148,7 +148,7 @@ export default function HeroRedesign({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-xl text-neutral-600 mb-8 leading-relaxed max-w-2xl relative z-30"
+            className="text-lg sm:text-xl text-neutral-600 mb-8 leading-relaxed max-w-2xl relative z-30 px-4 sm:px-0"
           >
             {subheadline}
           </motion.p>
@@ -158,11 +158,11 @@ export default function HeroRedesign({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex flex-col sm:flex-row gap-4 mb-8 relative z-30"
+            className="flex flex-col sm:flex-row gap-4 mb-8 relative z-30 w-full sm:w-auto px-4 sm:px-0"
           >
             <a
               href={primaryCTA.href}
-              className="btn-glow-primary inline-flex items-center justify-center px-8 py-4 text-xl font-semibold rounded-xl"
+              className="btn-glow-primary inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-xl font-semibold rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 w-full sm:w-auto"
             >
               {primaryCTA.text}
               <svg
@@ -181,7 +181,7 @@ export default function HeroRedesign({
             </a>
             <a
               href={secondaryCTA.href}
-              className="inline-flex items-center justify-center px-8 py-4 text-xl font-semibold text-neutral-900 bg-white/90 backdrop-blur-sm rounded-xl hover:bg-white transition-all border-2 border-neutral-200 shadow-sm hover:shadow-md"
+              className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-xl font-semibold text-neutral-900 bg-white/90 backdrop-blur-sm rounded-xl hover:bg-white transition-all border-2 border-neutral-200 shadow-sm hover:shadow-md hover:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-neutral-400 focus:ring-offset-2 w-full sm:w-auto"
             >
               {secondaryCTA.text}
             </a>

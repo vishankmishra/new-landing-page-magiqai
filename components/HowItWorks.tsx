@@ -26,7 +26,7 @@ export default function HowItWorks({
   timeSaving,
 }: HowItWorksProps) {
   return (
-    <section className="py-20 bg-white">
+    <section className="py-24 bg-gradient-to-b from-neutral-50/50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center mb-16">
@@ -198,21 +198,35 @@ export default function HowItWorks({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.5 }}
-          className="bg-gradient-to-r from-gray-900 to-gray-800 rounded-2xl p-8 text-center text-white"
+          className="relative bg-gradient-to-r from-neutral-900 via-neutral-800 to-neutral-900 rounded-2xl p-8 sm:p-12 text-center text-white overflow-hidden"
         >
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-8">
-            <div>
-              <p className="text-sm font-medium text-gray-400 mb-1">
+          {/* Subtle background pattern */}
+          <div className="absolute inset-0 opacity-10">
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundImage:
+                  "radial-gradient(circle at 2px 2px, rgba(255, 255, 255, 0.15) 1px, transparent 0)",
+                backgroundSize: "32px 32px",
+              }}
+            />
+          </div>
+          
+          <div className="relative z-10 flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-12">
+            <div className="flex flex-col items-center">
+              <p className="text-sm font-medium text-neutral-400 mb-2 uppercase tracking-wider">
                 Before MagiQ AI
               </p>
-              <p className="text-3xl font-bold">{timeSaving.before}</p>
+              <p className="text-3xl sm:text-4xl font-bold">{timeSaving.before}</p>
             </div>
-            <div className="text-4xl">→</div>
-            <div>
-              <p className="text-sm font-medium text-gray-400 mb-1">
+            <div className="text-4xl sm:text-5xl text-primary-400">→</div>
+            <div className="flex flex-col items-center">
+              <p className="text-sm font-medium text-neutral-400 mb-2 uppercase tracking-wider">
                 After MagiQ AI
               </p>
-              <p className="text-3xl font-bold">{timeSaving.after} ⚡</p>
+              <p className="text-3xl sm:text-4xl font-bold text-primary-400">
+                {timeSaving.after} ⚡
+              </p>
             </div>
           </div>
         </motion.div>

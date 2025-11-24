@@ -21,9 +21,9 @@ interface ProblemProps {
 
 export default function Problem({ headline, subheadline, painPoints, transition }: ProblemProps) {
   return (
-    <section className="py-20 relative overflow-hidden">
+    <section className="py-24 bg-white relative overflow-hidden">
       {/* Abstract Blob Background */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-magiq-200/20 rounded-full blur-3xl -z-10 pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-magiq-100/30 rounded-full blur-3xl -z-10 pointer-events-none" />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
@@ -59,7 +59,7 @@ export default function Problem({ headline, subheadline, painPoints, transition 
         </div>
 
         {/* Pain Points Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-16">
           {painPoints.map((point, index) => (
             <motion.div
               key={index}
