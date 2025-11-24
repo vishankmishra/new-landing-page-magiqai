@@ -1,9 +1,8 @@
 "use client";
 
-import React from "react";
-import { motion } from "framer-motion";
-import { useState } from "react";
 import { getIcon } from "@/utils/iconMap";
+import { motion } from "framer-motion";
+import React, { useState } from "react";
 
 interface CreditPack {
   name: string;
@@ -47,17 +46,15 @@ export default function PricingRedesign({
   const [selectedIndex, setSelectedIndex] = useState<number | null>(
     creditPacks.findIndex((pack) => pack.popular) !== -1
       ? creditPacks.findIndex((pack) => pack.popular)
-      : null
+      : 0 // Default to first card if no popular card
   );
 
   return (
-    <section id="pricing" className="py-24 bg-gradient-to-b from-white to-neutral-50/50 relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute top-20 right-10 w-96 h-96 bg-primary-200/30 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float" />
-      <div
-        className="absolute bottom-20 left-10 w-96 h-96 bg-accent-200/30 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float"
-        style={{ animationDelay: "2s" }}
-      />
+    <section id="pricing" className="py-24 bg-white relative overflow-hidden">
+      {/* Subtle Gradient Blob Overlays - Top Left & Bottom Right (Perspective.co style) */}
+      <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-magiq-100/25 rounded-full blur-3xl -z-10 pointer-events-none opacity-60" />
+      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-accent-200/25 rounded-full blur-3xl -z-10 pointer-events-none opacity-60" />
+      <div className="absolute top-1/3 left-1/3 w-[350px] h-[350px] bg-magiq-200/20 rounded-full blur-3xl -z-10 pointer-events-none opacity-40" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
@@ -83,11 +80,12 @@ export default function PricingRedesign({
         </div>
 
         {/* Credit Pack Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16 items-stretch pt-6">
           {creditPacks.map((pack, index) => {
             const isSelected = selectedIndex === index;
             const isPopular = pack.popular;
-            const isHighlighted = isSelected || isPopular;
+            // Only selected card gets highlighted styling
+            const isHighlighted = isSelected;
 
             return (
               <motion.div
@@ -97,22 +95,22 @@ export default function PricingRedesign({
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 onClick={() => setSelectedIndex(index)}
-                className={`relative rounded-3xl overflow-hidden cursor-pointer transition-all duration-300 ${
+                className={`relative rounded-2xl overflow-visible cursor-pointer transition-all duration-300 flex flex-col h-full ${
                   isHighlighted
-                    ? "bg-gradient-to-b from-white/90 to-magiq-50/50 ring-4 ring-primary-500 scale-105 shadow-2xl"
+                    ? "bg-gradient-to-br from-magiq-100/80 via-white to-accent-100/60 ring-4 ring-primary-500 scale-105 shadow-2xl shadow-primary-500/30"
                     : "glass-panel glass-panel-hover"
                 }`}
               >
-                {/* Popular Badge */}
+                {/* Popular Badge - Only show on popular card */}
                 {isPopular && (
-                  <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 z-20">
-                    <span className="inline-block px-4 py-1 bg-gradient-to-r from-primary-600 to-accent-600 text-white text-xs font-semibold rounded-full shadow-lg">
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-30">
+                    <span className="inline-block px-4 py-1.5 bg-gradient-to-r from-primary-600 to-accent-600 text-white text-xs font-semibold rounded-full shadow-lg">
                       Most Popular
                     </span>
                   </div>
                 )}
 
-                <div className="p-6">
+                <div className="p-6 overflow-hidden rounded-2xl flex flex-col flex-grow">
                   {/* Pack Name */}
                   <h3 className="text-xl font-bold text-neutral-900 mb-2 text-center">
                     {pack.name}
@@ -153,26 +151,28 @@ export default function PricingRedesign({
                   </p>
 
                   {/* Extra Info */}
-                  {pack.extraInfo && (
-                    <p className="text-sm font-semibold text-primary-600 text-center mb-6">
+                  {pack.extraInfo ? (
+                    <p className="text-sm font-semibold text-primary-600 text-center mb-auto">
                       {pack.extraInfo}
                     </p>
+                  ) : (
+                    <div className="mb-auto" />
                   )}
 
-                  {!pack.extraInfo && <div className="mb-6" />}
-
-                  {/* CTA */}
-                  <a
-                    href="https://app.magiqai.io/payment"
-                    onClick={(e) => e.stopPropagation()}
-                    className={`block w-full text-center px-6 py-3 rounded-xl font-semibold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 ${
-                      isHighlighted
-                        ? "bg-gradient-to-r from-primary-600 to-accent-600 text-white hover:from-primary-700 hover:to-accent-700 shadow-lg hover:shadow-xl hover:shadow-primary-500/30 hover:scale-105 focus:ring-primary-500"
-                        : "bg-neutral-100 text-neutral-900 hover:bg-neutral-200 focus:ring-neutral-400"
-                    }`}
-                  >
-                    Get Started →
-                  </a>
+                  {/* CTA - Fixed at bottom with consistent padding */}
+                  <div className="mt-6">
+                    <a
+                      href="https://app.magiqai.io/payment"
+                      onClick={(e) => e.stopPropagation()}
+                      className={`block w-full text-center px-6 py-3 rounded-xl font-semibold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 ${
+                        isHighlighted
+                          ? "bg-gradient-to-r from-primary-600 to-accent-600 text-white hover:from-primary-700 hover:to-accent-700 shadow-lg hover:shadow-xl hover:shadow-primary-500/30 hover:scale-105 focus:ring-primary-500"
+                          : "bg-neutral-100 text-neutral-900 hover:bg-neutral-200 focus:ring-neutral-400"
+                      }`}
+                    >
+                      Get Started →
+                    </a>
+                  </div>
                 </div>
               </motion.div>
             );
@@ -195,7 +195,10 @@ export default function PricingRedesign({
                   key={index}
                   className="glass-panel p-6 flex items-start gap-4 transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
                 >
-                  <NoteIcon className="w-6 h-6 text-primary-600 flex-shrink-0" strokeWidth={2} />
+                  <NoteIcon
+                    className="w-6 h-6 text-primary-600 flex-shrink-0"
+                    strokeWidth={2}
+                  />
                   <p className="text-lg font-semibold text-neutral-900 leading-relaxed">
                     {note.text}
                   </p>

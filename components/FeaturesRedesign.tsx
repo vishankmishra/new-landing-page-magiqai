@@ -1,10 +1,9 @@
 "use client";
 
-import React from "react";
-import { motion } from "framer-motion";
-import { useState } from "react";
-import Image from "next/image";
 import { getIcon } from "@/utils/iconMap";
+import { motion } from "framer-motion";
+import Image from "next/image";
+import React, { useState } from "react";
 
 interface Feature {
   icon: string;
@@ -31,7 +30,6 @@ const gradients = {
   indigo: "from-indigo-500 to-blue-500",
 };
 
-
 export default function FeaturesRedesign({
   headline,
   subheadline,
@@ -45,6 +43,10 @@ export default function FeaturesRedesign({
 
   return (
     <section className="py-24 bg-white relative overflow-hidden">
+      {/* Subtle Gradient Blob Overlay - Top Left & Center (Perspective.co style) */}
+      <div className="absolute top-0 left-0 w-[550px] h-[550px] bg-magiq-100/25 rounded-full blur-3xl -z-10 pointer-events-none opacity-60" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-accent-200/20 rounded-full blur-3xl -z-10 pointer-events-none opacity-40" />
+
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-20">
         <div
@@ -98,7 +100,9 @@ export default function FeaturesRedesign({
                 style={{
                   transformStyle: "preserve-3d",
                   transform:
-                    flippedIndex === index ? "rotateY(180deg)" : "rotateY(0deg)",
+                    flippedIndex === index
+                      ? "rotateY(180deg)"
+                      : "rotateY(0deg)",
                 }}
               >
                 {/* Front of Card - Horizontal Layout */}
@@ -142,7 +146,12 @@ export default function FeaturesRedesign({
                       <div className="mb-3 flex justify-center">
                         {(() => {
                           const IconComponent = getIcon(feature.icon);
-                          return <IconComponent className="w-12 h-12 text-primary-600" strokeWidth={1.5} />;
+                          return (
+                            <IconComponent
+                              className="w-12 h-12 text-primary-600"
+                              strokeWidth={1.5}
+                            />
+                          );
                         })()}
                       </div>
                       <h3 className="text-xl font-bold text-neutral-900 mb-2">
@@ -153,7 +162,9 @@ export default function FeaturesRedesign({
                       </p>
                       <button
                         onClick={() => handleKnowMore(index)}
-                        className={`inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold text-white bg-gradient-to-r ${gradients[feature.gradient]} hover:opacity-90 transition-all shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white/50`}
+                        className={`inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold text-white bg-gradient-to-r ${
+                          gradients[feature.gradient]
+                        } hover:opacity-90 transition-all shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white/50`}
                       >
                         Know More
                         <svg
@@ -185,12 +196,19 @@ export default function FeaturesRedesign({
                 >
                   <div className="p-6 h-full flex flex-col">
                     <div
-                      className={`bg-gradient-to-br ${gradients[feature.gradient]} p-4 rounded-lg mb-4`}
+                      className={`bg-gradient-to-br ${
+                        gradients[feature.gradient]
+                      } p-4 rounded-lg mb-4`}
                     >
                       <div className="mb-2 flex justify-center">
                         {(() => {
                           const IconComponent = getIcon(feature.icon);
-                          return <IconComponent className="w-10 h-10 text-white" strokeWidth={2} />;
+                          return (
+                            <IconComponent
+                              className="w-10 h-10 text-white"
+                              strokeWidth={2}
+                            />
+                          );
                         })()}
                       </div>
                       <h3 className="text-lg font-bold text-white">
@@ -201,7 +219,9 @@ export default function FeaturesRedesign({
                     <div className="flex-1 overflow-y-auto space-y-3">
                       {feature.benefits.map((benefit, benefitIndex) => {
                         const isComingSoon = benefit.includes("(Coming soon)");
-                        const benefitText = benefit.replace("(Coming soon)", "").trim();
+                        const benefitText = benefit
+                          .replace("(Coming soon)", "")
+                          .trim();
                         return (
                           <div
                             key={benefitIndex}
@@ -236,7 +256,9 @@ export default function FeaturesRedesign({
                     {/* Extra Info */}
                     {feature.extra && (
                       <div className="pt-4 mt-auto border-t border-neutral-200">
-                        <p className="text-xs text-neutral-500">{feature.extra}</p>
+                        <p className="text-xs text-neutral-500">
+                          {feature.extra}
+                        </p>
                       </div>
                     )}
 

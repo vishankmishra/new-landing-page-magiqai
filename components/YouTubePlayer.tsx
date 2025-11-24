@@ -74,8 +74,8 @@ export default function YouTubePlayer({
   }, [videoId, defaultSpeed]);
 
   return (
-    <div className={`relative ${className}`}>
-      <div className="relative w-full h-full rounded-3xl shadow-2xl shadow-blue-500/20 border border-white/50 overflow-hidden bg-black">
+    <div className={`relative w-full h-full ${className}`}>
+      <div className="relative w-full h-full overflow-hidden bg-black">
         {!isLoaded && (
           <div className="absolute inset-0 flex items-center justify-center bg-gray-900 z-10">
             <div className="text-white text-sm">Loading video...</div>

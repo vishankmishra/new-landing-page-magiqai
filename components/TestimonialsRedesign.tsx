@@ -45,7 +45,7 @@ export default function TestimonialsRedesign({ headline, subheadline, items, agg
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-900 tracking-tight mb-4"
+            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-neutral-900 tracking-tight mb-4"
           >
             {headline}
           </motion.h2>

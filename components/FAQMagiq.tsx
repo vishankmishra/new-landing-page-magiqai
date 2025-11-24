@@ -20,8 +20,12 @@ export default function FAQMagiq({ headline, items, calendlyLink }: FAQProps) {
   const hasItems = items && items.length > 0;
 
   return (
-    <section className="py-24 bg-gradient-to-b from-neutral-50/50 to-white">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-24 bg-white relative overflow-hidden">
+      {/* Subtle Gradient Blob Overlay - Bottom Center (Perspective.co style) */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-neutral-100/20 rounded-full blur-3xl -z-10 pointer-events-none opacity-60" />
+      <div className="absolute bottom-1/4 left-1/2 -translate-x-1/2 w-[350px] h-[350px] bg-magiq-100/15 rounded-full blur-3xl -z-10 pointer-events-none opacity-40" />
+
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

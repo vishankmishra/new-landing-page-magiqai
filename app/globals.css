@@ -142,3 +142,68 @@
 .rainbow-border {
   animation: rainbow-spin 4s linear infinite;
 }
+
+/* Dynamic Rotating Border - Perspective.co style */
+@property --rotate {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes rotate-gradient {
+  from {
+    --rotate: 0deg;
+  }
+  to {
+    --rotate: 360deg;
+  }
+}
+
+.hero-video-border {
+  background: linear-gradient(#fff, #fff) padding-box,
+    conic-gradient(
+        from var(--rotate),
+        #f5b2ae,
+        #ed8fb7,
+        #cd88f3 20%,
+        #a0abf6 25%,
+        #80ddf6 38%,
+        #80ddf6 48%,
+        #beccde 50%,
+        #f6d09a 55%,
+        #f6d09a 70%,
+        #f7a392 90%,
+        #f5b2ae
+      )
+      border-box;
+  border: 0.25rem solid transparent;
+  border-radius: 1.5rem; /* Match YouTubePlayer's rounded-3xl */
+  animation: rotate-gradient 5s linear infinite;
+  isolation: isolate;
+}
+
+.hero-video-inner {
+  border-radius: calc(
+    1.5rem - 0.25rem
+  ); /* Match outer border minus border width */
+}
+
+/* Ensure YouTube iframe matches the border-radius */
+.hero-video-inner iframe {
+  border-radius: calc(1.5rem - 0.25rem);
+}
+
+@media (max-width: 767px) {
+  .hero-video-border {
+    border-width: 0.15rem;
+    border-radius: 1rem; /* Slightly smaller on mobile */
+  }
+
+  .hero-video-inner {
+    border-radius: calc(1rem - 0.15rem);
+  }
+
+  .hero-video-inner iframe {
+    border-radius: calc(1rem - 0.15rem);
+  }
+}

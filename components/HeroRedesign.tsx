@@ -1,12 +1,11 @@
 "use client";
 
-import React from "react";
+import { getIcon } from "@/utils/iconMap";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
-import { useRef } from "react";
-import YouTubePlayer from "./YouTubePlayer";
-import { getIcon } from "@/utils/iconMap";
+import React, { useRef } from "react";
 import CountryFlags from "./CountryFlags";
+import YouTubePlayer from "./YouTubePlayer";
 
 interface HeroProps {
   eyebrow: string;
@@ -77,7 +76,7 @@ export default function HeroRedesign({
             ease: "easeInOut",
           }}
         />
-        
+
         {/* Top Right Blob */}
         <motion.div
           className="absolute -top-20 -right-20 w-[500px] h-[500px] bg-accent-500/20 rounded-full blur-3xl"
@@ -93,7 +92,7 @@ export default function HeroRedesign({
             delay: 0.5,
           }}
         />
-        
+
         {/* Bottom Center Blob */}
         <motion.div
           className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-magiq-400/15 rounded-full blur-3xl"
@@ -129,13 +128,22 @@ export default function HeroRedesign({
                 ) : (
                   line.split(" ").map((word, j) => {
                     const emphasisWords = ["AI", "Intelligence", "AI-Powered"];
-                    const shouldEmphasize = emphasisWords.some(ew => word.includes(ew));
+                    const shouldEmphasize = emphasisWords.some((ew) =>
+                      word.includes(ew)
+                    );
                     return shouldEmphasize ? (
-                      <span key={j} className="bg-clip-text text-transparent bg-gradient-to-r from-magiq-600 to-accent-600">
-                        {word}{j < line.split(" ").length - 1 ? " " : ""}
+                      <span
+                        key={j}
+                        className="bg-clip-text text-transparent bg-gradient-to-r from-magiq-600 to-accent-600"
+                      >
+                        {word}
+                        {j < line.split(" ").length - 1 ? " " : ""}
                       </span>
                     ) : (
-                      <span key={j}>{word}{j < line.split(" ").length - 1 ? " " : ""}</span>
+                      <span key={j}>
+                        {word}
+                        {j < line.split(" ").length - 1 ? " " : ""}
+                      </span>
                     );
                   })
                 )}
@@ -199,7 +207,10 @@ export default function HeroRedesign({
                 const IconComponent = getIcon(badge.icon);
                 return (
                   <div key={index} className="flex items-center gap-2">
-                    <IconComponent className="w-5 h-5 text-primary-600" strokeWidth={2} />
+                    <IconComponent
+                      className="w-5 h-5 text-primary-600"
+                      strokeWidth={2}
+                    />
                     <span className="text-base font-medium text-neutral-700">
                       {badge.text}
                     </span>
@@ -225,7 +236,7 @@ export default function HeroRedesign({
             </motion.div>
           )}
 
-          {/* 4. The 3D Video Container - Must be at the bottom */}
+          {/* 4. The 3D Video Container with Dynamic Rotating Border - Must be at the bottom */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
@@ -236,33 +247,13 @@ export default function HeroRedesign({
               transformStyle: "preserve-3d",
             }}
           >
-            {/* Glowing Border Container with Masking Technique */}
+            {/* Dynamic Rotating Border Container - Perspective.co style */}
             <motion.div
-              className="relative rounded-2xl overflow-hidden"
+              className="hero-video-border relative"
               style={{ rotateX, scale, opacity }}
             >
-              {/* The Rotating Background Image (The Glow) - Visible around edges */}
-              <div className="absolute inset-0 z-0 overflow-hidden rounded-2xl">
-                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[200%] h-[200%] animate-spin-slower opacity-100 blur-xl">
-                  <Image
-                    src="/images/bg-01-s.avif"
-                    alt="Gradient Glow"
-                    width={2000}
-                    height={2000}
-                    className="w-full h-full object-cover"
-                    unoptimized
-                    priority
-                  />
-                </div>
-              </div>
-
-              {/* Border Gradient Layer - Creates the glowing border effect */}
-              <div className="absolute inset-0 rounded-2xl p-[4px] z-10 pointer-events-none">
-                <div className="w-full h-full rounded-2xl bg-gradient-to-r from-transparent via-white/50 to-transparent" />
-              </div>
-
-              {/* The Video Content (On top) - Leaves border visible */}
-              <div className="relative z-20 rounded-2xl bg-gray-900 overflow-hidden w-full h-full shadow-2xl shadow-purple-500/20 m-[4px]">
+              {/* The Video Content - Inner container with matching border-radius */}
+              <div className="relative bg-gray-900 overflow-hidden w-full h-full shadow-2xl shadow-purple-500/20 hero-video-inner">
                 <div className="aspect-video">
                   <YouTubePlayer
                     videoId="QT67KkYvhIc"

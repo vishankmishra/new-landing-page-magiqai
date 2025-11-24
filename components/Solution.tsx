@@ -1,8 +1,8 @@
 "use client";
 
-import React from "react";
-import { motion } from "framer-motion";
 import { getIcon } from "@/utils/iconMap";
+import { motion } from "framer-motion";
+import React from "react";
 
 interface ValueProp {
   icon: string;
@@ -24,8 +24,12 @@ export default function Solution({
   callout,
 }: SolutionProps) {
   return (
-    <section className="py-24 bg-gradient-to-b from-white to-neutral-50/50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-24 bg-white relative overflow-hidden">
+      {/* Subtle Gradient Blob Overlay - Top Right (Perspective.co style) */}
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-accent-100/25 rounded-full blur-3xl -z-10 pointer-events-none opacity-60" />
+      <div className="absolute top-1/4 right-1/4 w-[400px] h-[400px] bg-magiq-200/20 rounded-full blur-3xl -z-10 pointer-events-none opacity-40" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center mb-16">
           <motion.h2
@@ -63,7 +67,12 @@ export default function Solution({
               <div className="mb-4 flex justify-center">
                 {(() => {
                   const IconComponent = getIcon(prop.icon);
-                  return <IconComponent className="w-14 h-14 text-primary-600" strokeWidth={1.5} />;
+                  return (
+                    <IconComponent
+                      className="w-14 h-14 text-primary-600"
+                      strokeWidth={1.5}
+                    />
+                  );
                 })()}
               </div>
 

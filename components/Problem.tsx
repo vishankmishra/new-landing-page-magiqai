@@ -1,30 +1,36 @@
-'use client'
+"use client";
 
-import React from 'react'
-import { motion } from 'framer-motion'
-import { getIcon } from '@/utils/iconMap'
+import { getIcon } from "@/utils/iconMap";
+import { motion } from "framer-motion";
+import React from "react";
 
 interface PainPoint {
-  icon: string
-  title: string
-  shortTag?: string
-  stats: Array<string>
-  description: string
+  icon: string;
+  title: string;
+  shortTag?: string;
+  stats: Array<string>;
+  description: string;
 }
 
 interface ProblemProps {
-  headline: string
-  subheadline: string
-  painPoints: PainPoint[]
-  transition: string
+  headline: string;
+  subheadline: string;
+  painPoints: PainPoint[];
+  transition: string;
 }
 
-export default function Problem({ headline, subheadline, painPoints, transition }: ProblemProps) {
+export default function Problem({
+  headline,
+  subheadline,
+  painPoints,
+  transition,
+}: ProblemProps) {
   return (
     <section className="py-24 bg-white relative overflow-hidden">
-      {/* Abstract Blob Background */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-magiq-100/30 rounded-full blur-3xl -z-10 pointer-events-none" />
-      
+      {/* Subtle Gradient Blob Overlay - Center (Perspective.co style) */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-magiq-100/25 rounded-full blur-3xl -z-10 pointer-events-none opacity-60" />
+      <div className="absolute top-1/3 left-1/3 w-[500px] h-[500px] bg-accent-200/20 rounded-full blur-3xl -z-10 pointer-events-none opacity-40" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center mb-16">
@@ -37,13 +43,22 @@ export default function Problem({ headline, subheadline, painPoints, transition 
           >
             {headline.split(" ").map((word, i) => {
               const emphasisWords = ["AI-Powered", "Intelligence", "AI"];
-              const shouldEmphasize = emphasisWords.some(ew => word.includes(ew));
+              const shouldEmphasize = emphasisWords.some((ew) =>
+                word.includes(ew)
+              );
               return shouldEmphasize ? (
-                <span key={i} className="bg-clip-text text-transparent bg-gradient-to-r from-magiq-600 to-accent-600">
-                  {word}{i < headline.split(" ").length - 1 ? " " : ""}
+                <span
+                  key={i}
+                  className="bg-clip-text text-transparent bg-gradient-to-r from-magiq-600 to-accent-600"
+                >
+                  {word}
+                  {i < headline.split(" ").length - 1 ? " " : ""}
                 </span>
               ) : (
-                <span key={i}>{word}{i < headline.split(" ").length - 1 ? " " : ""}</span>
+                <span key={i}>
+                  {word}
+                  {i < headline.split(" ").length - 1 ? " " : ""}
+                </span>
               );
             })}
           </motion.h2>
@@ -84,7 +99,10 @@ export default function Problem({ headline, subheadline, painPoints, transition 
                   const IconComponent = getIcon(point.icon);
                   return (
                     <div className="inline-flex items-center justify-center bg-magiq-50 rounded-full p-4">
-                      <IconComponent className="w-12 h-12 text-primary-600" strokeWidth={1.5} />
+                      <IconComponent
+                        className="w-12 h-12 text-primary-600"
+                        strokeWidth={1.5}
+                      />
                     </div>
                   );
                 })()}
@@ -98,7 +116,10 @@ export default function Problem({ headline, subheadline, painPoints, transition 
               {/* Stats */}
               <div className="space-y-2 mb-4">
                 {point.stats.map((stat, statIndex) => (
-                  <p key={statIndex} className="text-sm font-medium text-neutral-900">
+                  <p
+                    key={statIndex}
+                    className="text-sm font-medium text-neutral-900"
+                  >
                     {stat}
                   </p>
                 ))}
@@ -120,11 +141,9 @@ export default function Problem({ headline, subheadline, painPoints, transition 
           transition={{ duration: 0.5, delay: 0.5 }}
           className="text-center"
         >
-          <p className="text-xl font-semibold text-neutral-900">
-            {transition}
-          </p>
+          <p className="text-xl font-semibold text-neutral-900">{transition}</p>
         </motion.div>
       </div>
     </section>
-  )
+  );
 }

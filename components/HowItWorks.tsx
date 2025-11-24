@@ -26,8 +26,12 @@ export default function HowItWorks({
   timeSaving,
 }: HowItWorksProps) {
   return (
-    <section className="py-24 bg-gradient-to-b from-neutral-50/50 to-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-24 bg-white relative overflow-hidden">
+      {/* Subtle Gradient Blob Overlay - Bottom Left (Perspective.co style) */}
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-magiq-100/25 rounded-full blur-3xl -z-10 pointer-events-none opacity-60" />
+      <div className="absolute bottom-1/4 left-1/4 w-[350px] h-[350px] bg-accent-200/20 rounded-full blur-3xl -z-10 pointer-events-none opacity-40" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center mb-16">
           <motion.h2
@@ -67,7 +71,7 @@ export default function HowItWorks({
                 {index < steps.length - 1 && (
                   <div className="absolute left-10 top-full w-0.5 h-8 bg-gradient-to-b from-magiq-300 to-transparent" />
                 )}
-                
+
                 <div className="flex gap-4">
                   {/* Step Number */}
                   <div className="flex-shrink-0">
@@ -89,14 +93,24 @@ export default function HowItWorks({
                       <ul className="space-y-1.5">
                         {step.details.map((detail, detailIndex) => {
                           const isComingSoon = detail.includes("(Coming soon)");
-                          const detailText = detail.replace("(Coming soon)", "").trim();
+                          const detailText = detail
+                            .replace("(Coming soon)", "")
+                            .trim();
                           return (
                             <li
                               key={detailIndex}
                               className="flex items-start gap-2 text-xs text-neutral-600"
                             >
-                              <svg className="w-3 h-3 text-magiq-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                              <svg
+                                className="w-3 h-3 text-magiq-600 flex-shrink-0 mt-0.5"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                              >
+                                <path
+                                  fillRule="evenodd"
+                                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                  clipRule="evenodd"
+                                />
                               </svg>
                               <div className="flex-1 flex items-center gap-1.5 flex-wrap">
                                 <span>{detailText}</span>
@@ -122,7 +136,7 @@ export default function HowItWorks({
             <div className="relative">
               {/* Timeline Line - Enhanced with Purple Accents */}
               <div className="absolute top-16 left-0 right-0 h-0.5 bg-gradient-to-r from-magiq-200 via-accent-200 to-magiq-200 shadow-sm shadow-magiq-200/50" />
-              
+
               <div className="grid grid-cols-6 gap-4 items-stretch">
                 {steps.map((step, index) => (
                   <motion.div
@@ -143,8 +157,16 @@ export default function HowItWorks({
                     {/* Arrow Between Steps */}
                     {index < steps.length - 1 && (
                       <div className="absolute top-16 left-full w-4 h-0.5 flex items-center justify-center z-0">
-                        <svg className="w-4 h-4 text-magiq-400 -ml-1" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                        <svg
+                          className="w-4 h-4 text-magiq-400 -ml-1"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                            clipRule="evenodd"
+                          />
                         </svg>
                       </div>
                     )}
@@ -161,18 +183,31 @@ export default function HowItWorks({
                       {step.details && step.details.length > 0 && (
                         <ul className="space-y-1 flex-grow">
                           {step.details.map((detail, detailIndex) => {
-                            const isComingSoon = detail.includes("(Coming soon)");
-                            const detailText = detail.replace("(Coming soon)", "").trim();
+                            const isComingSoon =
+                              detail.includes("(Coming soon)");
+                            const detailText = detail
+                              .replace("(Coming soon)", "")
+                              .trim();
                             return (
                               <li
                                 key={detailIndex}
                                 className="flex items-start gap-1.5 text-xs text-neutral-600"
                               >
-                                <svg className="w-3 h-3 text-magiq-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                                <svg
+                                  className="w-3 h-3 text-magiq-600 flex-shrink-0 mt-0.5"
+                                  fill="currentColor"
+                                  viewBox="0 0 20 20"
+                                >
+                                  <path
+                                    fillRule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                    clipRule="evenodd"
+                                  />
                                 </svg>
                                 <div className="flex-1 flex items-center gap-1.5 flex-wrap">
-                                  <span className="leading-tight">{detailText}</span>
+                                  <span className="leading-tight">
+                                    {detailText}
+                                  </span>
                                   {isComingSoon && (
                                     <span className="inline-flex items-center px-1.5 py-0.5 rounded-md text-[10px] font-medium bg-yellow-100 text-yellow-800 border border-yellow-200">
                                       Coming Soon
@@ -211,13 +246,15 @@ export default function HowItWorks({
               }}
             />
           </div>
-          
+
           <div className="relative z-10 flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-12">
             <div className="flex flex-col items-center">
               <p className="text-sm font-medium text-neutral-400 mb-2 uppercase tracking-wider">
                 Before MagiQ AI
               </p>
-              <p className="text-3xl sm:text-4xl font-bold">{timeSaving.before}</p>
+              <p className="text-3xl sm:text-4xl font-bold">
+                {timeSaving.before}
+              </p>
             </div>
             <div className="text-4xl sm:text-5xl text-primary-400">→</div>
             <div className="flex flex-col items-center">

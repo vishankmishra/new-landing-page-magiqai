@@ -1,9 +1,8 @@
 "use client";
 
-import React from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
 import { getIcon } from "@/utils/iconMap";
+import { AnimatePresence, motion } from "framer-motion";
+import React, { useState } from "react";
 
 interface UseCase {
   icon: string;
@@ -32,8 +31,12 @@ export default function UseCases({
   };
 
   return (
-    <section className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-24 bg-white relative overflow-hidden">
+      {/* Subtle Gradient Blob Overlay - Center Right (Perspective.co style) */}
+      <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[450px] h-[450px] bg-accent-100/25 rounded-full blur-3xl -z-10 pointer-events-none opacity-60" />
+      <div className="absolute top-1/3 right-1/4 w-[300px] h-[300px] bg-magiq-300/15 rounded-full blur-3xl -z-10 pointer-events-none opacity-40" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center mb-16">
           <motion.h2
@@ -70,7 +73,7 @@ export default function UseCases({
               role="button"
               tabIndex={0}
               onKeyDown={(e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
+                if (e.key === "Enter" || e.key === " ") {
                   e.preventDefault();
                   toggleCase(index);
                 }
@@ -81,19 +84,31 @@ export default function UseCases({
                 <div className="flex items-center gap-3">
                   {(() => {
                     const IconComponent = getIcon(useCase.icon);
-                    return <IconComponent className="w-10 h-10 text-primary-600 flex-shrink-0" strokeWidth={1.5} />;
+                    return (
+                      <IconComponent
+                        className="w-10 h-10 text-primary-600 flex-shrink-0"
+                        strokeWidth={1.5}
+                      />
+                    );
                   })()}
                   <h3 className="text-2xl font-bold text-neutral-900">
                     {useCase.title}
                   </h3>
                 </div>
-                <svg 
-                  className={`w-6 h-6 text-neutral-500 flex-shrink-0 transition-transform duration-200 ${expandedIndex === index ? 'rotate-180' : ''}`}
-                  fill="none" 
-                  stroke="currentColor" 
+                <svg
+                  className={`w-6 h-6 text-neutral-500 flex-shrink-0 transition-transform duration-200 ${
+                    expandedIndex === index ? "rotate-180" : ""
+                  }`}
+                  fill="none"
+                  stroke="currentColor"
                   viewBox="0 0 24 24"
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 9l-7 7-7-7"
+                  />
                 </svg>
               </div>
 
@@ -124,11 +139,24 @@ export default function UseCases({
                         </p>
                         <ul className="space-y-2">
                           {useCase.solution.map((item, itemIndex) => (
-                            <li key={itemIndex} className="flex items-start gap-2">
-                              <svg className="w-4 h-4 text-primary-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                            <li
+                              key={itemIndex}
+                              className="flex items-start gap-2"
+                            >
+                              <svg
+                                className="w-4 h-4 text-primary-600 flex-shrink-0 mt-0.5"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                              >
+                                <path
+                                  fillRule="evenodd"
+                                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                  clipRule="evenodd"
+                                />
                               </svg>
-                              <span className="text-sm text-neutral-800">{item}</span>
+                              <span className="text-sm text-neutral-800">
+                                {item}
+                              </span>
                             </li>
                           ))}
                         </ul>
@@ -141,11 +169,24 @@ export default function UseCases({
                         </p>
                         <ul className="space-y-2">
                           {useCase.results.map((result, resultIndex) => (
-                            <li key={resultIndex} className="flex items-start gap-2">
-                              <svg className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                            <li
+                              key={resultIndex}
+                              className="flex items-start gap-2"
+                            >
+                              <svg
+                                className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                              >
+                                <path
+                                  fillRule="evenodd"
+                                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                  clipRule="evenodd"
+                                />
                               </svg>
-                              <span className="text-sm text-neutral-800">{result}</span>
+                              <span className="text-sm text-neutral-800">
+                                {result}
+                              </span>
                             </li>
                           ))}
                         </ul>
@@ -156,7 +197,9 @@ export default function UseCases({
                         <p className="text-xs font-semibold text-neutral-500 mb-1">
                           BEST FOR:
                         </p>
-                        <p className="text-sm text-neutral-700">{useCase.bestFor}</p>
+                        <p className="text-sm text-neutral-700">
+                          {useCase.bestFor}
+                        </p>
                       </div>
                     </div>
                   </motion.div>
