@@ -21,7 +21,7 @@ export default function StatsShowcase({
   stats,
 }: StatsShowcaseProps) {
   return (
-    <section className="py-20 bg-white relative overflow-hidden">
+    <section className="py-20 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
@@ -30,7 +30,7 @@ export default function StatsShowcase({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#141414] mb-4"
+            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-neutral-900 mb-4"
           >
             {headline}
           </motion.h2>
@@ -40,7 +40,7 @@ export default function StatsShowcase({
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-xl text-gray-600 max-w-3xl mx-auto"
+              className="text-xl text-neutral-600 max-w-3xl mx-auto"
             >
               {subheadline}
             </motion.p>
@@ -56,17 +56,23 @@ export default function StatsShowcase({
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="relative group bg-white rounded-2xl p-8 border border-gray-200 hover:shadow-lg transition-all"
+              className="relative group rounded-2xl p-8 transition-all duration-300"
+              style={{
+                backgroundColor: "rgba(255, 255, 255, 0.7)",
+                backdropFilter: "blur(8px)",
+                border: "1px solid rgba(255, 255, 255, 0.4)",
+                boxShadow: "0 4px 6px -1px rgba(119, 61, 244, 0.03), 0 2px 4px -1px rgba(119, 61, 244, 0.02)",
+              }}
             >
               {/* Content */}
               <div className="relative z-10">
-                <div className="text-6xl sm:text-7xl font-bold mb-2 text-[#141414]">
+                <div className="text-6xl sm:text-7xl font-bold mb-2 text-neutral-900">
                   {stat.value}
                 </div>
-                <div className="text-xl font-semibold mb-3 text-[#141414]">
+                <div className="text-xl font-semibold mb-3 text-neutral-900">
                   {stat.label}
                 </div>
-                <div className="text-sm text-gray-600 leading-relaxed">
+                <div className="text-sm text-neutral-700 leading-relaxed">
                   {stat.description}
                 </div>
               </div>

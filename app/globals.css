@@ -4,17 +4,24 @@
 
 @layer base {
   :root {
-    --font-inter: "Inter F", Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    --font-display: "Inter F", Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-inter: "Inter F", Inter, ui-sans-serif, system-ui, -apple-system,
+      BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+      sans-serif;
+    --font-display: "Inter F", Inter, ui-sans-serif, system-ui, -apple-system,
+      BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+      sans-serif;
   }
 
   * {
-    @apply border-gray-200;
+    @apply border-neutral-200;
   }
 
   body {
-    @apply bg-white text-[#141414] antialiased;
-    font-family: "Inter F", Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    @apply bg-gradient-mesh text-neutral-950 antialiased;
+    font-family: "Inter F", Inter, ui-sans-serif, system-ui, -apple-system,
+      BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+      sans-serif;
+    min-height: 100vh;
   }
 
   html {
@@ -23,16 +30,33 @@
 }
 
 @layer components {
+  /* Glassmorphism Panel */
+  .glass-panel {
+    @apply bg-gradient-glass backdrop-blur-md rounded-2xl border border-white/50 shadow-lg shadow-purple-500/5;
+    background-color: rgba(255, 255, 255, 0.9);
+  }
+
+  .glass-panel-hover {
+    @apply glass-panel transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/10 hover:-translate-y-1 hover:scale-[1.01];
+  }
+
+  /* Button Styles - Updated with new colors */
   .btn-primary {
     @apply inline-flex items-center justify-center px-6 py-3 text-base font-semibold text-white bg-primary-600 rounded-lg hover:bg-primary-700 transition-all duration-200 shadow-lg shadow-primary-500/30 hover:shadow-xl hover:shadow-primary-500/40 active:scale-95;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center px-6 py-3 text-base font-semibold text-gray-700 bg-white border-2 border-gray-300 rounded-lg hover:border-gray-400 hover:bg-gray-50 transition-all duration-200 active:scale-95;
+    @apply inline-flex items-center justify-center px-6 py-3 text-base font-semibold text-neutral-700 bg-white/90 backdrop-blur-sm border-2 border-neutral-300 rounded-lg hover:border-neutral-400 hover:bg-white transition-all duration-200 active:scale-95;
   }
 
+  /* Glow Button - Premium CTA Style */
+  .btn-glow-primary {
+    @apply inline-flex items-center justify-center text-white bg-magiq-600 shadow-lg shadow-magiq-500/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-magiq-500/50 hover:bg-magiq-700 active:scale-95;
+  }
+
+  /* Card Styles - Updated with glassmorphism */
   .card {
-    @apply bg-white rounded-2xl border border-gray-200 p-6 transition-all duration-300 hover:shadow-xl hover:border-gray-300 hover:-translate-y-1;
+    @apply glass-panel p-6 transition-all duration-300 hover:shadow-xl hover:border-white/60 hover:-translate-y-1;
   }
 
   .section-container {
@@ -44,15 +68,16 @@
   }
 
   .section-title {
-    @apply text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight;
+    @apply text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-900 tracking-tight;
   }
 
   .section-subtitle {
-    @apply mt-4 text-lg sm:text-xl text-gray-600 max-w-3xl;
+    @apply mt-4 text-lg sm:text-xl text-neutral-600 max-w-3xl;
   }
 }
 
 @layer utilities {
+  /* Text Gradient Utilities */
   .text-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-600 to-accent-600;
   }
@@ -61,6 +86,18 @@
     @apply bg-gradient-to-r from-primary-600 to-accent-600 bg-clip-text text-transparent;
   }
 
+  /* Text Glow Utilities */
+  .text-glow {
+    text-shadow: 0 0 20px rgba(119, 61, 244, 0.1),
+      0 0 40px rgba(119, 61, 244, 0.05);
+  }
+
+  .text-glow-primary {
+    text-shadow: 0 0 30px rgba(119, 61, 244, 0.15),
+      0 0 60px rgba(119, 61, 244, 0.08);
+  }
+
+  /* Animation Utilities */
   .animate-blob {
     animation: blob 7s infinite;
   }
@@ -105,4 +142,3 @@
 .rainbow-border {
   animation: rainbow-spin 4s linear infinite;
 }
-

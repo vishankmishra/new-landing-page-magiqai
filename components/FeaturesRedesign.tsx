@@ -44,7 +44,7 @@ export default function FeaturesRedesign({
   };
 
   return (
-    <section className="py-20 bg-white relative overflow-hidden">
+    <section className="py-20 relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-30">
         <div
@@ -103,7 +103,7 @@ export default function FeaturesRedesign({
               >
                 {/* Front of Card - Horizontal Layout */}
                 <div
-                  className="bg-white rounded-2xl shadow-lg overflow-hidden"
+                  className="glass-panel glass-panel-hover overflow-hidden transition-all duration-300"
                   style={{
                     backfaceVisibility: "hidden",
                     WebkitBackfaceVisibility: "hidden",
@@ -145,10 +145,10 @@ export default function FeaturesRedesign({
                           return <IconComponent className="w-12 h-12 text-primary-600" strokeWidth={1.5} />;
                         })()}
                       </div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-2">
+                      <h3 className="text-xl font-bold text-neutral-900 mb-2">
                         {feature.title}
                       </h3>
-                      <p className="text-sm text-gray-600 mb-4 leading-relaxed">
+                      <p className="text-sm text-neutral-600 mb-4 leading-relaxed">
                         {feature.description}
                       </p>
                       <button
@@ -176,7 +176,7 @@ export default function FeaturesRedesign({
 
                 {/* Back of Card (Benefits) */}
                 <div
-                  className="absolute inset-0 w-full h-full bg-white rounded-2xl shadow-lg overflow-hidden"
+                  className="absolute inset-0 w-full h-full glass-panel overflow-hidden transition-all duration-300"
                   style={{
                     backfaceVisibility: "hidden",
                     WebkitBackfaceVisibility: "hidden",
@@ -219,7 +219,7 @@ export default function FeaturesRedesign({
                               />
                             </svg>
                             <div className="flex-1 flex items-center gap-2 flex-wrap">
-                              <span className="text-sm text-gray-700 leading-snug">
+                              <span className="text-sm text-neutral-800 leading-snug">
                                 {benefitText}
                               </span>
                               {isComingSoon && (
@@ -235,15 +235,15 @@ export default function FeaturesRedesign({
 
                     {/* Extra Info */}
                     {feature.extra && (
-                      <div className="pt-4 mt-auto border-t border-gray-200">
-                        <p className="text-xs text-gray-500">{feature.extra}</p>
+                      <div className="pt-4 mt-auto border-t border-neutral-200">
+                        <p className="text-xs text-neutral-500">{feature.extra}</p>
                       </div>
                     )}
 
                     {/* Back Button */}
                     <button
                       onClick={() => handleKnowMore(index)}
-                      className="mt-4 px-4 py-2 text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors"
+                      className="mt-4 px-4 py-2 text-sm font-medium text-neutral-700 hover:text-neutral-900 transition-colors"
                     >
                       ← Back
                     </button>

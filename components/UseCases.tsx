@@ -32,7 +32,7 @@ export default function UseCases({
   };
 
   return (
-    <section className="py-16 sm:py-24 lg:py-32 bg-white">
+    <section className="py-16 sm:py-24 lg:py-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center mb-16">
@@ -41,7 +41,7 @@ export default function UseCases({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#141414] tracking-tight mb-4"
+            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-neutral-900 tracking-tight mb-4"
           >
             {headline}
           </motion.h2>
@@ -50,7 +50,7 @@ export default function UseCases({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-xl text-gray-600"
+            className="text-xl text-neutral-600"
           >
             {subheadline}
           </motion.p>
@@ -65,7 +65,7 @@ export default function UseCases({
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-gray-50 rounded-2xl border border-gray-200 overflow-hidden cursor-pointer hover:border-gray-300 transition-colors"
+              className="glass-panel glass-panel-hover overflow-hidden cursor-pointer transition-all duration-300"
               onClick={() => toggleCase(index)}
             >
               {/* Icon & Title - Always Visible */}
@@ -75,12 +75,12 @@ export default function UseCases({
                     const IconComponent = getIcon(useCase.icon);
                     return <IconComponent className="w-10 h-10 text-primary-600 flex-shrink-0" strokeWidth={1.5} />;
                   })()}
-                  <h3 className="text-2xl font-bold text-gray-900">
+                  <h3 className="text-2xl font-bold text-neutral-900">
                     {useCase.title}
                   </h3>
                 </div>
                 <svg 
-                  className={`w-6 h-6 text-gray-500 flex-shrink-0 transition-transform duration-200 ${expandedIndex === index ? 'rotate-180' : ''}`}
+                  className={`w-6 h-6 text-neutral-500 flex-shrink-0 transition-transform duration-200 ${expandedIndex === index ? 'rotate-180' : ''}`}
                   fill="none" 
                   stroke="currentColor" 
                   viewBox="0 0 24 24"
@@ -101,17 +101,17 @@ export default function UseCases({
                     <div className="px-8 pb-8 space-y-6">
                       {/* Challenge */}
                       <div>
-                        <p className="text-sm font-semibold text-gray-900 mb-2">
+                        <p className="text-sm font-semibold text-neutral-900 mb-2">
                           Your Challenge:
                         </p>
-                        <p className="text-sm text-gray-600 leading-relaxed">
+                        <p className="text-sm text-neutral-700 leading-relaxed">
                           {useCase.challenge}
                         </p>
                       </div>
 
                       {/* Solution */}
                       <div>
-                        <p className="text-sm font-semibold text-gray-900 mb-3">
+                        <p className="text-sm font-semibold text-neutral-900 mb-3">
                           How MagiQ AI Helps:
                         </p>
                         <ul className="space-y-2">
@@ -120,15 +120,15 @@ export default function UseCases({
                               <svg className="w-4 h-4 text-primary-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                               </svg>
-                              <span className="text-sm text-gray-700">{item}</span>
+                              <span className="text-sm text-neutral-800">{item}</span>
                             </li>
                           ))}
                         </ul>
                       </div>
 
                       {/* Results */}
-                      <div className="pb-6 border-b border-gray-200">
-                        <p className="text-sm font-semibold text-gray-900 mb-3">
+                      <div className="pb-6 border-b border-neutral-200">
+                        <p className="text-sm font-semibold text-neutral-900 mb-3">
                           Typical Results:
                         </p>
                         <ul className="space-y-2">
@@ -137,7 +137,7 @@ export default function UseCases({
                               <svg className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                               </svg>
-                              <span className="text-sm text-gray-700">{result}</span>
+                              <span className="text-sm text-neutral-800">{result}</span>
                             </li>
                           ))}
                         </ul>
@@ -145,10 +145,10 @@ export default function UseCases({
 
                       {/* Best For */}
                       <div>
-                        <p className="text-xs font-semibold text-gray-500 mb-1">
+                        <p className="text-xs font-semibold text-neutral-500 mb-1">
                           BEST FOR:
                         </p>
-                        <p className="text-sm text-gray-700">{useCase.bestFor}</p>
+                        <p className="text-sm text-neutral-700">{useCase.bestFor}</p>
                       </div>
                     </div>
                   </motion.div>

@@ -45,8 +45,8 @@ export default function Navigation({
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${
         isScrolled
-          ? "bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm"
-          : "bg-white border-b border-gray-100"
+          ? "backdrop-blur-md bg-white/70 border-b border-white/20 shadow-lg shadow-purple-500/5"
+          : "backdrop-blur-md bg-white/70 border-b border-white/20"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -70,7 +70,7 @@ export default function Navigation({
               <a
                 key={link.href}
                 href={link.href}
-                className="text-base font-medium text-[#141414] hover:text-gray-600 transition-colors"
+                className="text-base font-medium text-neutral-900 hover:text-neutral-600 transition-colors"
               >
                 {link.label}
               </a>
@@ -82,7 +82,7 @@ export default function Navigation({
             {/* Login Link */}
             <a
               href="https://app.magiqai.io/login"
-              className="text-base font-medium text-[#141414] hover:text-gray-600 transition-colors"
+              className="text-base font-medium text-neutral-900 hover:text-neutral-600 transition-colors"
             >
               Login
             </a>
@@ -90,15 +90,15 @@ export default function Navigation({
             {/* Talk to sales Button */}
             <a
               href="https://calendly.com/nilesh-kanawade"
-              className="inline-flex items-center px-5 py-2.5 text-base font-semibold text-[#141414] bg-white border border-gray-200 rounded-xl hover:bg-gray-50 transition-all"
+              className="inline-flex items-center px-5 py-2.5 text-base font-semibold text-neutral-900 bg-white/90 backdrop-blur-sm border border-neutral-200 rounded-xl hover:bg-white transition-all"
             >
               Talk to sales
             </a>
 
-            {/* Try for free Button - Perspective.co blue */}
+            {/* Try for free Button - Glow Button */}
             <a
               href="https://app.magiqai.io/signup"
-              className="inline-flex items-center px-6 py-2.5 text-base font-semibold text-white bg-[#0071eb] rounded-xl hover:bg-[#0056b8] transition-all shadow-sm hover:shadow-md"
+              className="btn-glow-primary inline-flex items-center px-6 py-2.5 text-base font-semibold rounded-xl"
             >
               Try for free
             </a>
@@ -107,7 +107,7 @@ export default function Navigation({
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-2 text-[#141414] hover:text-gray-600"
+            className="lg:hidden p-2 text-neutral-900 hover:text-neutral-600"
             aria-label="Toggle menu"
           >
             <svg
@@ -143,7 +143,7 @@ export default function Navigation({
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden border-t border-gray-100 bg-white"
+            className="lg:hidden border-t border-white/20 backdrop-blur-md bg-white/80"
           >
             <div className="px-4 py-5 space-y-3">
               {menuItems.map((link) => (
@@ -151,30 +151,30 @@ export default function Navigation({
                   key={link.href}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className="block py-2.5 text-base font-medium text-[#141414] hover:text-gray-600"
+                  className="block py-2.5 text-base font-medium text-neutral-900 hover:text-neutral-600"
                 >
                   {link.label}
                 </a>
               ))}
-              <div className="pt-4 space-y-3 border-t border-gray-100">
+              <div className="pt-4 space-y-3 border-t border-white/10">
                 <a
                   href="https://app.magiqai.io/login"
                   onClick={() => setIsOpen(false)}
-                  className="block py-2.5 text-base font-medium text-[#141414] hover:text-gray-600"
+                  className="block py-2.5 text-base font-medium text-neutral-900 hover:text-neutral-600"
                 >
                   Login
                 </a>
                 <a
                   href="https://calendly.com/nilesh-kanawade"
                   onClick={() => setIsOpen(false)}
-                  className="block w-full text-center px-5 py-3 text-base font-semibold text-[#141414] bg-white border border-gray-200 rounded-xl hover:bg-gray-50"
+                  className="block w-full text-center px-5 py-3 text-base font-semibold text-neutral-900 bg-white/90 backdrop-blur-sm border border-neutral-200 rounded-xl hover:bg-white"
                 >
                   Talk to sales
                 </a>
                 <a
                   href="https://app.magiqai.io/signup"
                   onClick={() => setIsOpen(false)}
-                  className="block w-full text-center px-6 py-3 text-base font-semibold text-white bg-[#0071eb] rounded-xl hover:bg-[#0056b8] shadow-sm"
+                  className="btn-glow-primary block w-full text-center px-6 py-3 text-base font-semibold rounded-xl"
                 >
                   Try for free
                 </a>

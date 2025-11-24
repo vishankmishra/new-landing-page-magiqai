@@ -21,8 +21,11 @@ interface ProblemProps {
 
 export default function Problem({ headline, subheadline, painPoints, transition }: ProblemProps) {
   return (
-    <section className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-20 relative overflow-hidden">
+      {/* Abstract Blob Background */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-magiq-200/20 rounded-full blur-3xl -z-10 pointer-events-none" />
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center mb-16">
           <motion.h2
@@ -30,16 +33,26 @@ export default function Problem({ headline, subheadline, painPoints, transition 
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#141414] tracking-tight mb-4"
+            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-neutral-900 tracking-tight mb-4"
           >
-            {headline}
+            {headline.split(" ").map((word, i) => {
+              const emphasisWords = ["AI-Powered", "Intelligence", "AI"];
+              const shouldEmphasize = emphasisWords.some(ew => word.includes(ew));
+              return shouldEmphasize ? (
+                <span key={i} className="bg-clip-text text-transparent bg-gradient-to-r from-magiq-600 to-accent-600">
+                  {word}{i < headline.split(" ").length - 1 ? " " : ""}
+                </span>
+              ) : (
+                <span key={i}>{word}{i < headline.split(" ").length - 1 ? " " : ""}</span>
+              );
+            })}
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-xl text-gray-600"
+            className="text-xl text-neutral-600"
           >
             {subheadline}
           </motion.p>
@@ -54,7 +67,7 @@ export default function Problem({ headline, subheadline, painPoints, transition 
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white rounded-2xl p-6 border border-gray-200 hover:shadow-lg transition-shadow"
+              className="glass-panel p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
             >
               {/* Short Tag Badge */}
               {point.shortTag && (
@@ -65,30 +78,34 @@ export default function Problem({ headline, subheadline, painPoints, transition 
                 </div>
               )}
 
-              {/* Icon */}
+              {/* Icon with Glowing Circle */}
               <div className="mb-4">
                 {(() => {
                   const IconComponent = getIcon(point.icon);
-                  return <IconComponent className="w-16 h-16 text-primary-600" strokeWidth={1.5} />;
+                  return (
+                    <div className="inline-flex items-center justify-center bg-magiq-50 rounded-full p-4">
+                      <IconComponent className="w-12 h-12 text-primary-600" strokeWidth={1.5} />
+                    </div>
+                  );
                 })()}
               </div>
 
               {/* Title */}
-              <h3 className="text-xl font-bold text-[#141414] mb-4">
+              <h3 className="text-xl font-bold text-neutral-900 mb-4">
                 {point.title}
               </h3>
 
               {/* Stats */}
               <div className="space-y-2 mb-4">
                 {point.stats.map((stat, statIndex) => (
-                  <p key={statIndex} className="text-sm font-medium text-[#141414]">
+                  <p key={statIndex} className="text-sm font-medium text-neutral-900">
                     {stat}
                   </p>
                 ))}
               </div>
 
               {/* Description */}
-              <p className="text-sm text-gray-600 leading-relaxed">
+              <p className="text-sm text-neutral-600 leading-relaxed">
                 {point.description}
               </p>
             </motion.div>
@@ -103,7 +120,7 @@ export default function Problem({ headline, subheadline, painPoints, transition 
           transition={{ duration: 0.5, delay: 0.5 }}
           className="text-center"
         >
-          <p className="text-xl font-semibold text-[#141414]">
+          <p className="text-xl font-semibold text-neutral-900">
             {transition}
           </p>
         </motion.div>

@@ -51,7 +51,7 @@ export default function PricingRedesign({
   );
 
   return (
-    <section id="pricing" className="py-20 bg-white relative overflow-hidden">
+    <section id="pricing" className="py-20 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute top-20 right-10 w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float" />
       <div
@@ -97,11 +97,11 @@ export default function PricingRedesign({
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 onClick={() => setSelectedIndex(index)}
-                className={`relative bg-white rounded-3xl overflow-hidden cursor-pointer ${
+                className={`relative rounded-3xl overflow-hidden cursor-pointer transition-all duration-300 ${
                   isHighlighted
-                    ? "shadow-2xl ring-4 ring-primary-500 scale-105"
-                    : "shadow-lg"
-                } transition-all duration-300 hover:shadow-2xl hover:-translate-y-2`}
+                    ? "bg-gradient-to-b from-white/90 to-magiq-50/50 ring-4 ring-primary-500 scale-105 shadow-2xl"
+                    : "glass-panel glass-panel-hover"
+                }`}
               >
                 {/* Popular Badge */}
                 {isPopular && (
@@ -114,7 +114,7 @@ export default function PricingRedesign({
 
                 <div className="p-6">
                   {/* Pack Name */}
-                  <h3 className="text-xl font-bold text-gray-900 mb-2 text-center">
+                  <h3 className="text-xl font-bold text-neutral-900 mb-2 text-center">
                     {pack.name}
                   </h3>
 
@@ -132,23 +132,23 @@ export default function PricingRedesign({
                     }
                     return (
                       <div className="text-center mb-4">
-                        <div className="text-4xl font-bold text-gray-900">
+                        <div className="text-4xl font-bold text-neutral-900">
                           {totalCredits.toLocaleString()}
                         </div>
-                        <div className="text-sm text-gray-600">Credits</div>
+                        <div className="text-sm text-neutral-600">Credits</div>
                       </div>
                     );
                   })()}
 
                   {/* Price Display */}
                   <div className="text-center mb-4">
-                    <div className="text-2xl font-bold text-gray-900">
+                    <div className="text-2xl font-bold text-neutral-900">
                       ${pack.price.toLocaleString()}
                     </div>
                   </div>
 
                   {/* Description */}
-                  <p className="text-sm text-gray-600 text-center mb-2">
+                  <p className="text-sm text-neutral-600 text-center mb-2">
                     {pack.description}
                   </p>
 
@@ -165,10 +165,10 @@ export default function PricingRedesign({
                   <a
                     href="https://app.magiqai.io/payment"
                     onClick={(e) => e.stopPropagation()}
-                    className={`block w-full text-center px-6 py-3 rounded-xl font-semibold transition-all ${
+                    className={`block w-full text-center px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
                       isHighlighted
                         ? "bg-gradient-to-r from-primary-600 to-accent-600 text-white hover:from-primary-700 hover:to-accent-700 shadow-lg hover:shadow-xl hover:scale-105"
-                        : "bg-gray-100 text-gray-900 hover:bg-gray-200"
+                        : "bg-neutral-100 text-neutral-900 hover:bg-neutral-200"
                     }`}
                   >
                     Get Started →
@@ -193,10 +193,10 @@ export default function PricingRedesign({
               return (
                 <div
                   key={index}
-                  className="bg-white rounded-xl p-6 shadow-lg border border-gray-100 flex items-start gap-4 hover:shadow-xl transition-shadow"
+                  className="glass-panel p-6 flex items-start gap-4 transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
                 >
                   <NoteIcon className="w-6 h-6 text-primary-600 flex-shrink-0" strokeWidth={2} />
-                  <p className="text-lg font-semibold text-gray-900 leading-relaxed">
+                  <p className="text-lg font-semibold text-neutral-900 leading-relaxed">
                     {note.text}
                   </p>
                 </div>

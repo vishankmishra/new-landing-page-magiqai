@@ -15,8 +15,11 @@ export default function Footer({ tagline, sections }: FooterProps) {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-white border-t border-gray-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <footer className="relative bg-magiq-950 border-t border-white/10 overflow-hidden">
+      {/* Subtle Glow at Top */}
+      <div className="absolute top-0 left-0 w-full h-20 bg-magiq-500/20 blur-3xl pointer-events-none" />
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
         {/* Logo */}
         <div className="mb-12">
           <a href="/" className="inline-block">
@@ -25,7 +28,7 @@ export default function Footer({ tagline, sections }: FooterProps) {
               alt="MagiQ AI"
               width={140}
               height={40}
-              className="h-10 w-auto"
+              className="h-10 w-auto brightness-0 invert"
             />
           </a>
         </div>
@@ -34,7 +37,7 @@ export default function Footer({ tagline, sections }: FooterProps) {
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 mb-12">
           {sections.map((section, index) => (
             <div key={index}>
-              <h3 className="text-[#141414] font-semibold mb-4 text-sm">
+              <h3 className="text-white font-semibold mb-4 text-sm">
                 {section.title}
               </h3>
               <ul className="space-y-3">
@@ -42,7 +45,7 @@ export default function Footer({ tagline, sections }: FooterProps) {
                   <li key={linkIndex}>
                     <a
                       href={link.href}
-                      className="text-gray-600 hover:text-[#141414] transition-colors text-sm"
+                      className="text-neutral-400 hover:text-white transition-colors text-sm"
                     >
                       {link.label}
                     </a>
@@ -54,14 +57,14 @@ export default function Footer({ tagline, sections }: FooterProps) {
         </div>
 
         {/* Bottom section */}
-        <div className="pt-8 border-t border-gray-100">
+        <div className="pt-8 border-t border-white/10">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-gray-500 text-sm">
+            <p className="text-neutral-400 text-sm">
               © {currentYear} MagiQ AI. All rights reserved.
             </p>
             {/* Language selector placeholder */}
             <div className="flex items-center gap-2">
-              <span className="text-gray-500 text-sm">English</span>
+              <span className="text-neutral-400 text-sm">English</span>
             </div>
           </div>
         </div>

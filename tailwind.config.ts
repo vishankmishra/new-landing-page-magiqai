@@ -9,17 +9,47 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        // MagiQ Purple - Full scale based on #773DF4
+        magiq: {
+          50: "#f5f0ff",
+          100: "#ede0ff",
+          200: "#dcc5ff",
+          300: "#c49eff",
+          400: "#a870ff",
+          500: "#8b4aff",
+          600: "#773df4", // MagiQ Purple anchor
+          700: "#6528d9",
+          800: "#5421b3",
+          900: "#461d94",
+          950: "#2d1261",
+        },
+        // Primary color - MagiQ Purple scale
         primary: {
-          50: "#eff6ff",
-          100: "#dbeafe",
-          200: "#bfdbfe",
-          300: "#93c5fd",
-          400: "#60a5fa",
-          500: "#3b82f6",
-          600: "#0071eb", // Perspective.co blue rgb(0, 113, 235)
-          700: "#0056b8",
-          800: "#004494",
-          900: "#003370",
+          50: "#f5f0ff",
+          100: "#ede0ff",
+          200: "#dcc5ff",
+          300: "#c49eff",
+          400: "#a870ff",
+          500: "#8b4aff",
+          600: "#773df4", // MagiQ Purple anchor
+          700: "#6528d9",
+          800: "#5421b3",
+          900: "#461d94",
+          950: "#2d1261",
+        },
+        // Rich Neutral - Mauve-based grays that harmonize with purple
+        neutral: {
+          50: "#faf9fb",
+          100: "#f4f2f6",
+          200: "#e8e4ed",
+          300: "#d4cedb",
+          400: "#b8b0c4",
+          500: "#9a8fa8",
+          600: "#7c6e8c",
+          700: "#635770",
+          800: "#514759",
+          900: "#433c4a",
+          950: "#2a252f",
         },
         accent: {
           50: "#faf5ff",
@@ -37,7 +67,7 @@ const config: Config = {
           500: "#10b981",
           600: "#059669",
         },
-        // Perspective.co specific colors
+        // Perspective.co specific colors (kept for backward compatibility)
         perspective: {
           blue: "#0071eb", // rgb(0, 113, 235)
           text: "#141414", // rgb(20, 20, 20)
@@ -46,7 +76,14 @@ const config: Config = {
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-primary": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+        // Rich Light Mode gradients
+        "gradient-mesh":
+          "linear-gradient(135deg, #ffffff 0%, #faf9ff 25%, #f5f0ff 50%, #ede0ff 75%, #e8f0ff 100%)",
+        "gradient-primary":
+          "linear-gradient(135deg, #773df4 0%, #8b4aff 50%, #a870ff 100%)",
+        "gradient-glass":
+          "linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.85) 100%)",
+        // Legacy gradients (kept for backward compatibility)
         "gradient-blue": "linear-gradient(135deg, #3b82f6 0%, #2563eb 100%)",
         "gradient-purple": "linear-gradient(135deg, #a855f7 0%, #7e22ce 100%)",
       },

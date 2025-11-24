@@ -33,7 +33,7 @@ interface TestimonialsProps {
 
 export default function TestimonialsRedesign({ headline, subheadline, items, aggregateMetrics }: TestimonialsProps) {
   return (
-    <section className="py-16 sm:py-24 lg:py-32 bg-white relative overflow-hidden">
+    <section className="py-16 sm:py-24 lg:py-32 relative overflow-hidden">
       {/* Background Decoration */}
       <div className="absolute top-0 left-0 w-full h-64 bg-gradient-to-br from-blue-50 to-purple-50 -z-10" />
 
@@ -45,7 +45,7 @@ export default function TestimonialsRedesign({ headline, subheadline, items, agg
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight mb-4"
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-900 tracking-tight mb-4"
           >
             {headline}
           </motion.h2>
@@ -54,7 +54,7 @@ export default function TestimonialsRedesign({ headline, subheadline, items, agg
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-lg sm:text-xl text-gray-600"
+            className="text-lg sm:text-xl text-neutral-600"
           >
             {subheadline}
           </motion.p>
@@ -69,7 +69,7 @@ export default function TestimonialsRedesign({ headline, subheadline, items, agg
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-200 relative group overflow-hidden"
+              className="glass-panel glass-panel-hover p-8 relative group overflow-hidden transition-all duration-300"
             >
               {/* Gradient Border on Hover */}
               <div className="absolute inset-0 bg-gradient-to-br from-primary-500 to-accent-500 opacity-0 group-hover:opacity-10 transition-opacity duration-300 rounded-2xl" />
@@ -78,34 +78,34 @@ export default function TestimonialsRedesign({ headline, subheadline, items, agg
               <div className="absolute top-6 left-6 text-6xl text-primary-100 font-serif">&ldquo;</div>
 
               {/* Quote */}
-              <p className="text-gray-900 leading-relaxed mb-6 relative z-10 pt-10">
+              <p className="text-neutral-900 leading-relaxed mb-6 relative z-10 pt-10 font-medium">
                 &ldquo;{testimonial.quote}&rdquo;
               </p>
 
               {/* Author with Avatar */}
-              <div className="flex items-center gap-4 mb-6 pb-6 border-b border-gray-200">
+              <div className="flex items-center gap-4 mb-6 pb-6 border-b border-neutral-200">
                 <div className="flex-shrink-0">
                   <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center text-white font-bold text-lg">
                     {testimonial.author.charAt(0)}
                   </div>
                 </div>
                 <div>
-                  <p className="font-bold text-gray-900">{testimonial.author}</p>
-                  <p className="text-sm text-gray-600">{testimonial.role}</p>
-                  <p className="text-sm text-gray-600">{testimonial.company}</p>
-                  <p className="text-xs text-gray-500 mt-1">{testimonial.companyInfo}</p>
+                  <p className="font-bold text-neutral-900">{testimonial.author}</p>
+                  <p className="text-sm text-neutral-700">{testimonial.role}</p>
+                  <p className="text-sm text-neutral-700">{testimonial.company}</p>
+                  <p className="text-xs text-neutral-500 mt-1">{testimonial.companyInfo}</p>
                 </div>
               </div>
 
               {/* Metrics */}
               <div className="space-y-3">
-                <p className="text-sm font-semibold text-gray-900 mb-3">Impact Metrics:</p>
+                <p className="text-sm font-semibold text-neutral-900 mb-3">Impact Metrics:</p>
                 {testimonial.metrics.map((metric, metricIndex) => {
                   const MetricIcon = getIcon(metric.icon);
                   return (
                     <div key={metricIndex} className="flex items-start gap-2 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg p-2">
                       <MetricIcon className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" strokeWidth={2} />
-                      <span className="text-sm text-gray-700 font-medium">{metric.text}</span>
+                      <span className="text-sm text-neutral-800 font-medium">{metric.text}</span>
                     </div>
                   );
                 })}
