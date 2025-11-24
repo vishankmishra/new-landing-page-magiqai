@@ -28,6 +28,7 @@ function FlagImage({ code, name }: { code: string; name: string }) {
 
   return (
     <span className="inline-flex items-center" title={name}>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={hasError ? cdnUrl : src}
         alt={`${name} flag`}

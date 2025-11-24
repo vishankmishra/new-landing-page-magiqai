@@ -42,7 +42,8 @@ export default function FAQMagiq({ headline, items, calendlyLink }: FAQProps) {
               className="flex flex-col items-center gap-4"
             >
               <p className="text-lg text-gray-600 mb-2">
-                Have questions? Let's chat about how MagiQ AI can help your sales team.
+                Have questions? Let&apos;s chat about how MagiQ AI can help your
+                sales team.
               </p>
               <a
                 href={calendlyLink}
@@ -95,7 +96,9 @@ export default function FAQMagiq({ headline, items, calendlyLink }: FAQProps) {
                 className="border border-gray-200 rounded-xl overflow-hidden bg-white hover:border-gray-300 transition-colors"
               >
                 <button
-                  onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                  onClick={() =>
+                    setOpenIndex(openIndex === index ? null : index)
+                  }
                   className="w-full flex items-center justify-between p-6 text-left"
                 >
                   <span className="text-lg font-semibold text-gray-900 pr-8">
