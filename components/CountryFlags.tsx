@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 
 interface CountryFlagsProps {
   countries: Array<{
@@ -19,28 +19,18 @@ const countryFlagMap: Record<string, { name: string }> = {
 };
 
 function FlagImage({ code, name }: { code: string; name: string }) {
-  // Try local flag SVG first, then fallback to CDN
-  const localPath = `/flags/${code.toLowerCase()}.svg`;
-  // Using flagcdn.com which provides high-quality flag SVGs
+  // Use flagcdn.com CDN directly - reliable and high-quality
   const cdnUrl = `https://flagcdn.com/${code.toLowerCase()}.svg`;
-  const [src, setSrc] = useState(localPath);
-  const [hasError, setHasError] = useState(false);
 
   return (
     <span className="inline-flex items-center" title={name}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src={hasError ? cdnUrl : src}
+        src={cdnUrl}
         alt={`${name} flag`}
         width={32}
         height={24}
         className="inline-block rounded border border-gray-200 shadow-sm"
-        onError={() => {
-          if (!hasError) {
-            setHasError(true);
-            setSrc(cdnUrl);
-          }
-        }}
         style={{
           width: "32px",
           height: "24px",
