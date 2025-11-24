@@ -87,17 +87,28 @@ export default function HowItWorks({
 
                     {step.details && step.details.length > 0 && (
                       <ul className="space-y-1.5">
-                        {step.details.map((detail, detailIndex) => (
-                          <li
-                            key={detailIndex}
-                            className="flex items-start gap-2 text-xs text-gray-600"
-                          >
-                            <svg className="w-3 h-3 text-primary-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                            </svg>
-                            <span>{detail}</span>
-                          </li>
-                        ))}
+                        {step.details.map((detail, detailIndex) => {
+                          const isComingSoon = detail.includes("(Coming soon)");
+                          const detailText = detail.replace("(Coming soon)", "").trim();
+                          return (
+                            <li
+                              key={detailIndex}
+                              className="flex items-start gap-2 text-xs text-gray-600"
+                            >
+                              <svg className="w-3 h-3 text-primary-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                              </svg>
+                              <div className="flex-1 flex items-center gap-1.5 flex-wrap">
+                                <span>{detailText}</span>
+                                {isComingSoon && (
+                                  <span className="inline-flex items-center px-1.5 py-0.5 rounded-md text-[10px] font-medium bg-yellow-100 text-yellow-800 border border-yellow-200">
+                                    Coming Soon
+                                  </span>
+                                )}
+                              </div>
+                            </li>
+                          );
+                        })}
                       </ul>
                     )}
                   </div>
@@ -149,17 +160,28 @@ export default function HowItWorks({
 
                       {step.details && step.details.length > 0 && (
                         <ul className="space-y-1 flex-grow">
-                          {step.details.map((detail, detailIndex) => (
-                            <li
-                              key={detailIndex}
-                              className="flex items-start gap-1.5 text-xs text-gray-600"
-                            >
-                              <svg className="w-3 h-3 text-primary-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                              </svg>
-                              <span className="leading-tight">{detail}</span>
-                            </li>
-                          ))}
+                          {step.details.map((detail, detailIndex) => {
+                            const isComingSoon = detail.includes("(Coming soon)");
+                            const detailText = detail.replace("(Coming soon)", "").trim();
+                            return (
+                              <li
+                                key={detailIndex}
+                                className="flex items-start gap-1.5 text-xs text-gray-600"
+                              >
+                                <svg className="w-3 h-3 text-primary-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                                </svg>
+                                <div className="flex-1 flex items-center gap-1.5 flex-wrap">
+                                  <span className="leading-tight">{detailText}</span>
+                                  {isComingSoon && (
+                                    <span className="inline-flex items-center px-1.5 py-0.5 rounded-md text-[10px] font-medium bg-yellow-100 text-yellow-800 border border-yellow-200">
+                                      Coming Soon
+                                    </span>
+                                  )}
+                                </div>
+                              </li>
+                            );
+                          })}
                         </ul>
                       )}
                     </div>

@@ -81,7 +81,7 @@ export default function Navigation({
           <div className="hidden lg:flex items-center gap-5">
             {/* Login Link */}
             <a
-              href="https://app.magiqai.io/LOGIN"
+              href="https://app.magiqai.io/login"
               className="text-base font-medium text-[#141414] hover:text-gray-600 transition-colors"
             >
               Login
@@ -158,7 +158,7 @@ export default function Navigation({
               ))}
               <div className="pt-4 space-y-3 border-t border-gray-100">
                 <a
-                  href="https://app.magiqai.io/LOGIN"
+                  href="https://app.magiqai.io/login"
                   onClick={() => setIsOpen(false)}
                   className="block py-2.5 text-base font-medium text-[#141414] hover:text-gray-600"
                 >

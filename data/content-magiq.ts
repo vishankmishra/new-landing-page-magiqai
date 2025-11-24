@@ -193,7 +193,7 @@ export const magiqContent = {
           "References recent company news",
           "Aligns with executive priorities",
           "Addresses role-specific pain points",
-          "One-click send via Gmail, Outlook, or CRM",
+          "One-click send via Gmail, Outlook, or CRM (Coming soon)",
         ],
       },
       {
@@ -228,10 +228,9 @@ export const magiqContent = {
           "Multi-dimensional filtering (industry, size, geography, tech stack)",
           "Real-time database with millions of global companies",
           "Custom segmentation and saved searches",
-          "Bulk export to CSV or direct CRM sync",
+          "Bulk export to CSV or direct CRM sync (Coming soon)",
         ],
-        extra:
-          "Coverage: India, Singapore, Malaysia, UAE, Philippines, Indonesia, United States, EU",
+        extra: "Coverage: India, Singapore, Malaysia, UAE, United States",
         gradient: "blue" as const,
       },
       {
@@ -261,7 +260,7 @@ export const magiqContent = {
           "Predicts deal success before first contact",
           "Real-time updates as new data arrives",
           "Transparent reasoning (see WHY each score)",
-          "89% historical accuracy",
+          // "89% historical accuracy",
         ],
         extra:
           "Score derived from weighted AI model: Profitability, Funding, Hiring Signals, Media Sentiment, and Relationship History.",
@@ -274,13 +273,13 @@ export const magiqContent = {
         media: "/videos/features/Decision-Maker Intelligence.mp4",
         benefits: [
           "Identify key stakeholders and influencers",
-          "Map organizational hierarchy and reporting structure",
+          // "Map organizational hierarchy and reporting structure",
           "Direct contact info (email, phone, LinkedIn)",
           "Executive intent signals from social media",
           "Career history, education, and expertise",
           "Common connections for warm introductions",
         ],
-        extra: "Accuracy: 92% for contact info, 95% for firmographics",
+        extra: "Continuously verified from direct and authoritative sources",
         gradient: "orange" as const,
       },
       {
@@ -311,9 +310,9 @@ export const magiqContent = {
           "References recent news and executive priorities",
           "Multiple variations for A/B testing",
           "Brand voice customization",
-          "One-click integration with Gmail, Outlook, Salesforce, HubSpot",
+          "One-click integration with Gmail, Outlook, Salesforce, HubSpot (Coming soon)",
         ],
-        extra: "Time Savings: 2-3 hours per email → 30 seconds",
+        extra: "Time Savings: Hours spent on one email → 30 seconds",
         gradient: "indigo" as const,
       },
     ],
@@ -370,8 +369,14 @@ export const magiqContent = {
           icon: "Zap",
           text: "70% average time savings on non-selling activities",
         },
-        { icon: "TrendingUp", text: "5X improvement in lead-to-close conversion" },
-        { icon: "DollarSign", text: "40-50% reduction in customer acquisition cost" },
+        {
+          icon: "TrendingUp",
+          text: "5X improvement in lead-to-close conversion",
+        },
+        {
+          icon: "DollarSign",
+          text: "40-50% reduction in customer acquisition cost",
+        },
         {
           icon: "Target",
           text: "89% Win Score accuracy validated across 10,000+ deals",
@@ -446,10 +451,10 @@ export const magiqContent = {
         challenge:
           "Entering India, SEA, or other new geographies without local market knowledge. Need reliable data and cultural context.",
         solution: [
-          "Deep coverage: India, Singapore, Malaysia, UAE, Philippines, Indonesia",
+          "Deep coverage: India, Singapore, Malaysia, UAE",
           "Local business context and norms",
           "Regional competitor analysis",
-          "Multi-language support (coming Q3 2025)",
+          // "Multi-language support (coming Q3 2025)",
         ],
         results: [
           "10X faster market entry",
@@ -556,37 +561,47 @@ export const magiqContent = {
       },
     ],
     notes: [
-      { icon: "Lightbulb", text: "Pay only for what you use - No monthly subscriptions" },
+      {
+        icon: "Lightbulb",
+        text: "Pay only for what you use - No monthly subscriptions",
+      },
       { icon: "Lock", text: "Transparent pricing - 1 credit = $1, always" },
-      { icon: "Gift", text: "Credits never expire - Use them at your own pace" },
-      { icon: "Phone", text: "Need custom pricing? Contact us for enterprise solutions" },
+      {
+        icon: "Gift",
+        text: "Credits never expire - Use them at your own pace",
+      },
+      {
+        icon: "Phone",
+        text: "Need custom pricing? Contact us for enterprise solutions",
+      },
     ],
   },
 
   faq: {
     headline: "Questions? We've Got Answers",
+    calendlyLink: "https://calendly.com/nilesh-kanawade",
     items: [
-      {
-        question:
-          "How is MagiQ AI different from Apollo, ZoomInfo, or LinkedIn Sales Navigator?",
-        answer:
-          "Those are contact databases. They help you find emails and phone numbers. MagiQ AI is an intelligence platform. We tell you which contacts to prioritize and exactly how to win the deal.\n\nWe predict win probability, generate complete sales strategies, write personalized outreach, and provide an AI coach. These are capabilities you won't find in data platforms.\n\nThink of us as the AI decision layer that sits on top of your existing tools and makes them 10X more effective.",
-      },
-      {
-        question: "What geographies do you cover?",
-        answer:
-          "We have deep, reliable coverage across:\n• India (all major cities + tier-2 markets)\n• Singapore\n• Malaysia\n• UAE\n• United States\n\nExpanding in 2025: Philippines (Q2), Indonesia (Q2), Australia (Q3), United Kingdom (Q3), European Union (Q4)\n\nUnlike platforms built for Western markets that export poor-quality data elsewhere, we provide consistent intelligence depth across all our covered regions.",
-      },
-      {
-        question: "Do I need to replace my existing sales tools?",
-        answer:
-          "No. MagiQ AI integrates seamlessly with your current stack:\n\n✅ CRMs: Salesforce, HubSpot, Pipedrive, Microsoft Dynamics\n✅ Email: Gmail, Outlook, Office 365\n✅ Sales Engagement: Outreach, SalesLoft, Apollo\n✅ Other: LinkedIn Sales Navigator, Slack, Zapier, Make\n\nWe enhance your workflow. We don't replace it. Most customers keep their existing tools and use MagiQ AI as the intelligence layer on top.",
-      },
-      {
-        question: "Can I try before I buy?",
-        answer:
-          "Absolutely. 14-day free trial on all plans. No credit card required.\n\nDuring the trial you get:\n• Full platform access (based on your selected plan)\n• Unlimited searches to test with your real ICPs\n• Onboarding session with our team\n• Email and chat support\n\nCurrent Status: We're in controlled beta, onboarding users gradually to ensure high-quality support. Join the waitlist and we'll fast-track your approval (typically within 2-3 business days).",
-      },
+      // {
+      //   question:
+      //     "How is MagiQ AI different from Apollo, ZoomInfo, or LinkedIn Sales Navigator?",
+      //   answer:
+      //     "Those are contact databases. They help you find emails and phone numbers. MagiQ AI is an intelligence platform. We tell you which contacts to prioritize and exactly how to win the deal.\n\nWe predict win probability, generate complete sales strategies, write personalized outreach, and provide an AI coach. These are capabilities you won't find in data platforms.\n\nThink of us as the AI decision layer that sits on top of your existing tools and makes them 10X more effective.",
+      // },
+      // {
+      //   question: "What geographies do you cover?",
+      //   answer:
+      //     "We have deep, reliable coverage across:\n• India (all major cities + tier-2 markets)\n• Singapore\n• Malaysia\n• UAE\n• United States\n\nExpanding in 2025: Australia (Q3), United Kingdom (Q3)\n\nUnlike platforms built for Western markets that export poor-quality data elsewhere, we provide consistent intelligence depth across all our covered regions.",
+      // },
+      // {
+      //   question: "Do I need to replace my existing sales tools?",
+      //   answer:
+      //     "No. MagiQ AI integrates seamlessly with your current stack:\n\n✅ CRMs: Salesforce, HubSpot, Pipedrive, Microsoft Dynamics\n✅ Email: Gmail, Outlook, Office 365\n✅ Sales Engagement: Outreach, SalesLoft, Apollo\n✅ Other: LinkedIn Sales Navigator, Slack, Zapier, Make\n\nWe enhance your workflow. We don't replace it. Most customers keep their existing tools and use MagiQ AI as the intelligence layer on top.",
+      // },
+      // {
+      //   question: "Can I try before I buy?",
+      //   answer:
+      //     "Absolutely. 14-day free trial on all plans. No credit card required.\n\nDuring the trial you get:\n• Full platform access (based on your selected plan)\n• Unlimited searches to test with your real ICPs\n• Onboarding session with our team\n• Email and chat support\n\nCurrent Status: We're in controlled beta, onboarding users gradually to ensure high-quality support. Join the waitlist and we'll fast-track your approval (typically within 2-3 business days).",
+      // },
     ],
   },
 };

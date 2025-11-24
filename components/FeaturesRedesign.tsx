@@ -199,27 +199,38 @@ export default function FeaturesRedesign({
                     </div>
 
                     <div className="flex-1 overflow-y-auto space-y-3">
-                      {feature.benefits.map((benefit, benefitIndex) => (
-                        <div
-                          key={benefitIndex}
-                          className="flex items-start gap-2"
-                        >
-                          <svg
-                            className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5"
-                            fill="currentColor"
-                            viewBox="0 0 20 20"
+                      {feature.benefits.map((benefit, benefitIndex) => {
+                        const isComingSoon = benefit.includes("(Coming soon)");
+                        const benefitText = benefit.replace("(Coming soon)", "").trim();
+                        return (
+                          <div
+                            key={benefitIndex}
+                            className="flex items-start gap-2"
                           >
-                            <path
-                              fillRule="evenodd"
-                              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                              clipRule="evenodd"
-                            />
-                          </svg>
-                          <span className="text-sm text-gray-700 leading-snug">
-                            {benefit}
-                          </span>
-                        </div>
-                      ))}
+                            <svg
+                              className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5"
+                              fill="currentColor"
+                              viewBox="0 0 20 20"
+                            >
+                              <path
+                                fillRule="evenodd"
+                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                clipRule="evenodd"
+                              />
+                            </svg>
+                            <div className="flex-1 flex items-center gap-2 flex-wrap">
+                              <span className="text-sm text-gray-700 leading-snug">
+                                {benefitText}
+                              </span>
+                              {isComingSoon && (
+                                <span className="inline-flex items-center px-2 py-0.5 rounded-md text-xs font-medium bg-yellow-100 text-yellow-800 border border-yellow-200">
+                                  Coming Soon
+                                </span>
+                              )}
+                            </div>
+                          </div>
+                        );
+                      })}
                     </div>
 
                     {/* Extra Info */}
