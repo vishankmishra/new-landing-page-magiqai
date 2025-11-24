@@ -38,12 +38,13 @@ export default function PrivacyPage() {
                   1. Introduction
                 </h2>
                 <p>
-                  MagiQ AI ("we," "our," or "us") is committed to protecting
-                  your privacy. This Privacy Policy explains how we collect,
-                  use, disclose, and safeguard your information when you use our
-                  AI-powered sales intelligence platform (the "Service"). By
-                  using MagiQ AI, you agree to the collection and use of
-                  information in accordance with this policy.
+                  MagiQ AI (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;)
+                  is committed to protecting your privacy. This Privacy Policy
+                  explains how we collect, use, disclose, and safeguard your
+                  information when you use our AI-powered sales intelligence
+                  platform (the &quot;Service&quot;). By using MagiQ AI, you
+                  agree to the collection and use of information in accordance
+                  with this policy.
                 </p>
               </section>
 
@@ -337,7 +338,7 @@ export default function PrivacyPage() {
 
               <section>
                 <h2 className="text-2xl font-bold text-neutral-900 mb-4">
-                  9. Children's Privacy
+                  9. Children&apos;s Privacy
                 </h2>
                 <p>
                   Our Service is not intended for individuals under 18 years of
@@ -374,9 +375,9 @@ export default function PrivacyPage() {
                 <p>
                   We may update this Privacy Policy from time to time. We will
                   notify you of significant changes by posting the new policy on
-                  this page and updating the "Last updated" date. Your continued
-                  use of the Service after changes become effective constitutes
-                  acceptance of the updated policy.
+                  this page and updating the &quot;Last updated&quot; date. Your
+                  continued use of the Service after changes become effective
+                  constitutes acceptance of the updated policy.
                 </p>
               </section>
 
